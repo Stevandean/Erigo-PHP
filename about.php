@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("TENTANG KAMI | ERIGO STORE"); ?>
+    <?php SEO("About Us | ERIGO STORE"); ?>
 </head>
 
 <body>

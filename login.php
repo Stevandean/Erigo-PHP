@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO(""); ?>
+    <?php SEO("Login | ERIGO STORE"); ?>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
-                    <p class="font-['Poppins'] font-medium text-sm text-[#757575]">Don't have account? <a href="./sign_up.html" class="text-blue-500 hover:text-blue-600 transition-all duration-250 ease-linear">Create Account</a></p>
+                    <p class="font-['Poppins'] font-medium text-sm text-[#757575]">Don't have account? <a href="./register.php" class="text-blue-500 hover:text-blue-600 transition-all duration-250 ease-linear">Create Account</a></p>
                 </div>
             </form>
             <!-- Form Data End -->
