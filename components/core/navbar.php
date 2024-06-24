@@ -1,5 +1,3 @@
-
-
 <nav class="shadow-lg px-5 md:px-16 h-auto md:h-16">
     <div class="py-6 flex h-full w-full items-center justify-start justify-between">
         <a class="text-3xl font-extrabold font-heading text-black uppercase" href="./">
@@ -11,7 +9,7 @@
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./about.php">About</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./product.php">Product</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./maintenance.php">FAQ</a></li>
-                <li><button class="text-gray">Logout</button></li>
+                <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./login.php">Logout</a></button></li>
                 <li><span class="font-medium cursor default">|</span></li>
             </ul>
 
