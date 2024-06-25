@@ -8,15 +8,15 @@
                 <li><a class="text-navy hover:text-navy transition-all ease-in-out duration-300" href="./index.php">Home</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./about.php">About</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./product.php">Product</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./maintenance.php">FAQ</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./faq.php">FAQ</a></li>
                 <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./login.php">Logout</a></button></li>
                 <li><span class="font-medium cursor default">|</span></li>
             </ul>
 
             <div class="hidden xl:flex items-center space-x-5 items-center">
                 <?php if ($_SESSION['status_login'] != true) { ?>
-                    <a href="./login.php" id="loginBtn" class="">Login</a>
-                    <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg text-white">Register</a>
+                    <a href="./login.php" id="loginBtn" class="font-bold">Login</a>
+                    <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg text-white font-bold">Register</a>
                 <?php } else { ?>
                     <a id="cartBtn" class="flex items-center" href="./shopping_cart.php">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,8 +70,8 @@
         </ul>
         <div class="space-y-3 xl:space-y-0 xl:space-x-3 flex flex-col">
             <?php if ($_SESSION['status_login'] !== true) { ?>
-                <a href="./login.php" id="loginBtnMbl" class="">Login</a>
-                <a href="./register.php" id="registerBtnMbl" class="bg-navy px-3 py-1.5 w-fit rounded-lg text-white">Register</a>
+                <a href="./login.php" id="loginBtnMbl" class="font-bold">Login</a>
+                <a href="./register.php" id="registerBtnMbl" class="bg-navy px-3 py-1.5 w-fit rounded-lg text-white font-bold">Register</a>
             <?php } else { ?>
                 <a href="./shopping_cart.php" id="cartBtnMbl">
                     <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

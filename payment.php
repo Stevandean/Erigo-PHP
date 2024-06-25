@@ -66,7 +66,7 @@
                                     <tr class="font-semibold text-lg flex flex-row justify-between items-start">
                                         <td class="w-[40%] flex justify-start">
                                             <div class="flex flex-col">
-                                                <span>Erigo T-Shirt Basic Olive White Unisex</span>
+                                                <span>Erigo Last Stock T-Shirt</span>
                                                 <span class="text-gray text-base font-normal mb-5">Size : XL</span>
                                             </div>
                                         </td>
@@ -74,7 +74,7 @@
                                             <span>x1</span>
                                         </td>
                                         <td class="w-[40%] flex justify-end">
-                                            <span>Rp. 250.000</span>
+                                            <span>Rp. 49.000</span>
                                         </td>
                                     </tr>
                                     <tr class="font-semibold text-lg flex flex-row items-start">
@@ -97,7 +97,7 @@
                         <hr class="border w-full border-[#757575]">
                         <div class="flex justify-between mt-3 text-lg">
                             <span class="font-semibold">Total</span>
-                            <span class="font-semibold">Rp. 750.000</span>
+                            <span class="font-semibold">Rp. 549 .000</span>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,10 @@
                     <span class="text-xl font-semibold">Select Method</span>
                     <div class="w-36 text-lg font-medium flex justify-between">
                         <span>QRIS</span>
-                        <span>></span>
+                        <a href="./qris.php"><span>></span></a>
+                    </div>
+                    <div class="w-36 text-lg font-medium flex justify-between">
+                        <span>E-wallet</span>
                     </div>
                     <div class="flex justify-end items-center space-x-3">
                         <span class="font-semibold text-lg">Total : Rp.752.999</span>
