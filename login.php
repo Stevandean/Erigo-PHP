@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="flex flex-col items-start mb-[20px]">
-                    <a href="./Admin/index.php" type="submit" class="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-250 ease-linear text-white h-[35px] rounded-lg font-['Poppins'] font-semibold flex items-center justify-center">Login</a>
+                    <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-250 ease-linear text-white h-[35px] rounded-lg font-['Poppins'] font-semibold flex items-center justify-center">Login</button>
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
