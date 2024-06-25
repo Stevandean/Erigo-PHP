@@ -22,7 +22,7 @@ if ($_POST) {
     } else if ($password !== $confirm_password) {
         echo "<script>alert('Password isn\\'t same! Please check your Password again!'); location.href='../../register.php';</script>";
     } else {
-        $insert = mysqli_query($conn, "insert into user (name, address, phone, role, email, password) value ('" . $name . "','" . $address . "','" . $phone . "', 'member','" . $email . "','" . md5($password) . "')");
+        $insert = mysqli_query($conn, "insert into users (name, address, phone, role, email, password) value ('" . $name . "','" . $address . "','" . $phone . "', 'member','" . $email . "','" . md5($password) . "')");
         if ($insert) {
             echo "<script>alert('Sukses menambahkan user'); location.href='../../login.php';</script>";
         } else {

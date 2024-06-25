@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 <nav class="shadow-lg px-5 md:px-16 h-auto md:h-16">
     <div class="py-6 flex h-full w-full items-center justify-start justify-between">
@@ -11,7 +13,7 @@
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./about.php">About</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./product.php">Product</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./maintenance.php">FAQ</a></li>
-                <li><button class="text-gray">Logout</button></li>
+                <li><a class="text-gray" href="./process/auth/auth_logout.php">Logout</a></li>
                 <li><span class="font-medium cursor default">|</span></li>
             </ul>
 

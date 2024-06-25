@@ -1,10 +1,8 @@
 <?php
-
-// echo "test";
-
-session_start(); // Mulai session
-session_destroy(); // Menghapus session
+session_start();
+session_destroy();
 
 // Redirect ke halaman login atau halaman lain jika perlu
-header("location.href='../../login.php';");
+header("location: ../../login.php");
 exit;
+?>
