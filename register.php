@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("Register | ERIGO STORE"); ?>
+    <?php SEO("Register | Erigo Store"); ?>
 </head>
 
 <body>
@@ -23,30 +23,30 @@
             <!-- title section end -->
             <!-- input nama -->
             <form action="./process/auth/auth_regist.php" method="POST" class="mt-[20px]">
-                <div class="flex flex-col items-start mb-[15px]">
+                <div class="flex flex-col items-start mb-[20px]">
                     <label for="name" class="font-['Poppins'] font-medium text-xs mb-2">Name</label>
-                    <input type="text" name="name" id="name" class="border border-black rounded-lg w-full h-[30px] px-3">
+                    <input type="text" name="name" id="name" class="border border-black rounded-lg w-full h-[35px] px-3">
                 </div>
-                <div class="flex flex-col items-start mb-[15px]">
+                <div class="flex flex-col items-start mb-[20px]">
                     <label for="address" class="font-['Poppins'] font-medium text-xs mb-2">Address</label>
-                    <textarea name="address" id="address" class="border border-black rounded-lg w-full h-[50px] resize-none px-3"></textarea>
+                    <textarea name="address" id="address" class="border border-black rounded-lg w-full h-[50px] px-3 resize-none"></textarea>
                     <!-- <input type="text" name="address" id="address" class="border border-black rounded-lg w-full h-[50px]"> -->
                 </div>
-                <div class="flex flex-col items-start mb-[15px]">
+                <div class="flex flex-col items-start mb-[20px]">
                     <label for="phone" class="font-['Poppins'] font-medium text-xs mb-2">Phone</label>
-                    <input type="text" name="phone" id="phone" class="border border-black rounded-lg w-full h-[30px] px-3">
+                    <input type="text" name="phone" id="phone" class="border border-black rounded-lg w-full h-[35px] px-3">
                 </div>
-                <div class="flex flex-col items-start mb-[15px]">
+                <div class="flex flex-col items-start mb-[20px]">
                     <label for="email" class="font-['Poppins'] font-medium text-xs mb-2">Email Address</label>
-                    <input type="email" name="email" id="email" class="border border-black rounded-lg w-full h-[30px] px-3">
+                    <input type="email" name="email" id="email" class="border border-black rounded-lg w-full h-[35px] px-3">
                 </div>
-                <div class="flex flex-col items-start mb-[15px]">
+                <div class="flex flex-col items-start mb-[20px]">
                     <label for="password" class="font-['Poppins'] font-medium text-xs mb-2">Password</label>
-                    <input type="password" name="password" id="password" class="border border-black rounded-lg w-full h-[30px] px-3">
+                    <input type="password" name="password" id="password" class="border border-black rounded-lg w-full h-[35px] px-3">
                 </div>
-                <div class="flex flex-col items-start mb-[15px]">
+                <div class="flex flex-col items-start mb-[20px]">
                     <label for="confirm_password" class="font-['Poppins'] font-medium text-xs mb-2"> Confirm Password </label>
-                    <input type="password" name="confirm_password" id="confirm_password" class="border border-black rounded-lg w-full h-[30px] px-3" />
+                    <input type="password" name="confirm_password" id="confirm_password" class="border border-black rounded-lg w-full h-[35px] px-3" />
                 </div>
                 <div class="flex flex-col items-start mb-[20px]">
                     <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-250 ease-linear text-white h-[35px] mt-[5px] rounded-lg font-['Poppins'] font-semibold flex items-center justify-center">Create Account</button>

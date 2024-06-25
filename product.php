@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("Product | ERIGO STORE"); ?>
+    <?php SEO("Product | Erigo Store"); ?>
 </head>
 
 <body>
