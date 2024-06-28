@@ -53,7 +53,7 @@
                                 <a class="block pb-2 text-sm" href="./product.php">Product</a>
                             </li>
                             <li>
-                                <a class="block pb-2 text-sm" href="./maintenance.php">FAQ</a>
+                                <a class="block pb-2 text-sm" href="./faq.php">FAQ</a>
                             </li>
                         </ul>
                     </div>
@@ -67,7 +67,7 @@
                                 <a class="block pb-2 text-sm" href="./maintenance.php">Exchanges & Returns</a>
                             </li>
                             <li>
-                                <a class="block pb-2 text-sm" href="./payment_information.php">Payment
+                                <a class="block pb-2 text-sm" href="./faq.php">Payment
                                     Information</a>
                             </li>
                             <li>
@@ -79,7 +79,7 @@
                                     Code</a>
                             </li>
                             <li>
-                                <a class="block pb-2 text-sm" href="./maintenance.php">FAQ</a>
+                                <a class="block pb-2 text-sm" href="./faq.php">FAQ</a>
                             </li>
                         </ul>
                     </div>

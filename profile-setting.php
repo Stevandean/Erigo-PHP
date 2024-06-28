@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <?php SEO("Profile Setting | ERIGO STORE"); ?>
+    <?php SEO("Profile Setting | Erigo Store"); ?>
 </head>
 
 <body>
@@ -62,4 +62,5 @@
         <?php require_once './components/core/footer.php'; ?>
     </main>
 </body>
+
 </html>

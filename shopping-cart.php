@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("Shopping Cart | ERIGO STORE"); ?>
+    <?php SEO("Shopping Cart | Erigo Store"); ?>
 </head>
 
 <body>
@@ -35,8 +35,9 @@
                     Process</a>
             </div>
         </section>
-        
+
         <?php require_once './components/core/footer.php'; ?>
     </main>
 </body>
+
 </html>

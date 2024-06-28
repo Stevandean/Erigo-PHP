@@ -44,4 +44,24 @@
     .dropdown-content p {
         margin: 0;
     }
+
+    .custom-button {
+        background-color: #f59e0b;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+        background-color: #1d4ed8;
+    }
 </style>
