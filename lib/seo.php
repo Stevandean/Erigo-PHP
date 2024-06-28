@@ -1,11 +1,12 @@
-<?php function SEO($title){ ?>
-    <title><?php echo $title ? $title : "BERANDA | ERIGO STORE" ?></title>
+<?php function SEO($title)
+{ ?>
+    <title><?php echo $title ? $title : "Welcome to Erigo Store!" ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="ERIGO">
     <meta name="description" content="E-COMMERCE ERIGO">
-    <meta property="og:title" content="<?php echo $title ? $title : "BERANDA | ERIGO STORE" ?>">
+    <meta property="og:title" content="<?php echo $title ? $title : "Welcome to Erigo Store!" ?>">
     <meta property="og:description" content="E-COMMERCE ERIGO">
     <meta property="og:image" content="./assets/img/about-us.jpg">
     <!-- <meta property="og:url" content="/this-page.html"> -->
