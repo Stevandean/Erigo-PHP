@@ -1,8 +1,8 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+// session_unset();
 session_destroy();
-
-// Redirect ke halaman login atau halaman lain jika perlu
-header("location: ../../login.php");
-exit;
-?>
+header("location: ../../index.php");
+exit();

@@ -8,10 +8,10 @@
 </head>
 
 <body>
-    <main class="w-full h-screen font-[Poppins]">
+    <main class="w-full h-screen font-[Poppins] ">
         <?php require_once './components/core/navbar.php'; ?>
 
-        <section class="min-h-full mb-10">
+        <section class="min-h-full mb-10 flex justify-center items-center">
             <h1 class="text-2xl font-extrabold p-10 uppercase">featured products</h1>
             <div class="grid grid-cols-1 xl:grid-cols-4 w-full gap-x-20 gap-y-10 px-10">
                 <a href="./detail_product.html" class="flex flex-col justify-center items-center custom-shadow rounded-lg py-5">
