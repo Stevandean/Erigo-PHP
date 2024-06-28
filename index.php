@@ -1,3 +1,4 @@
+
 <?php require_once './lib/seo.php'; ?>
 
 <!DOCTYPE html>
@@ -68,4 +69,4 @@
     </main>
 </body>
 
-</html>
+</html
