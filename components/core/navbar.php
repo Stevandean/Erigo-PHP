@@ -11,24 +11,16 @@ if (session_status() == PHP_SESSION_NONE) {
         </a>
         <div class="flex items-center">
             <ul class="hidden md:flex px-4 mx-auto text-lg font-bold space-x-6">
-                <li><a class="text-navy hover:text-navy transition-all ease-in-out duration-300"
-                        href="./index.php">Home</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300"
-                        href="./about.php">About</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300"
-                        href="./product.php">Product</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300"
-                        href="./maintenance.php">FAQ</a></li>
-                <?php if (isset($_SESSION['status_login']) && $_SESSION['status_login'] === true) { ?>
-                    <li><button class="text-gray"><a
-                                class="text-gray hover:text-navy transition-all ease-in-out duration-300"
-                                href="./process/auth/auth_logout.php">Logout</a></button></li>
-                    <li><span class="font-medium cursor default">|</span></li>
-                <?php } ?>
+                <li><a class="text-navy hover:text-navy transition-all ease-in-out duration-300" href="./index.php">Home</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./about.php">About</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./product.php">Product</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./maintenance.php">FAQ</a></li>
+                <li><a class="text-gray" href="./process/auth/auth_logout.php">Logout</a></li>
+                <li><span class="font-medium cursor default">|</span></li>
             </ul>
 
             <div class="hidden xl:flex items-center space-x-5 items-center">
-                <?php if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) { ?>
+                <?php if ($_SESSION['status_login'] != true) { ?>
                     <a href="./login.php" id="loginBtn" class="">Login</a>
                     <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg text-white">Register</a>
                 <?php } else { ?>
@@ -93,10 +85,9 @@ if (session_status() == PHP_SESSION_NONE) {
             </li>
         </ul>
         <div class="space-y-3 xl:space-y-0 xl:space-x-3 flex flex-col">
-            <?php if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) { ?>
+            <?php if ($_SESSION['status_login'] !== true) { ?>
                 <a href="./login.php" id="loginBtnMbl" class="">Login</a>
-                <a href="./register.php" id="registerBtnMbl"
-                    class="bg-navy px-3 py-1.5 w-fit rounded-lg text-white">Register</a>
+                <a href="./register.php" id="registerBtnMbl" class="bg-navy px-3 py-1.5 w-fit rounded-lg text-white">Register</a>
             <?php } else { ?>
                 <a href="./shopping_cart.php" id="cartBtnMbl">
                     <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

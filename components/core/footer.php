@@ -58,7 +58,7 @@
                         </ul>
                     </div>
                     <div class="w-full lg:w-4/12 px-4 ml-auto">
-                        <span class="block uppercase text-2xl font-extrabold mb-2">information</span>
+                        <span class="block uppercase text-2xl font-extrabold mb-2">Information</span>
                         <ul class="list-unstyled">
                             <li>
                                 <a class="block pb-2 text-sm" href="./maintenance.php">Erigo Tour</a>
