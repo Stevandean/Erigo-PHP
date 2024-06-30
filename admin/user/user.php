@@ -12,18 +12,18 @@
         <?php include_once  '../../components/core/sidebar.php'; ?>
         <main class="w-full h-screen bg-slate-100">
             <?php include_once  '../../components/core/header.php'; ?>
-            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <h2 className="text-xl font-semibold text-black">
+            <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <h2 class="text-xl font-semibold text-black">
                     User
                 </h2>
                 <nav>
-                    <ol className="flex items-center justify-center p-2 xl:p-5">
+                    <ol class="flex items-center justify-center p-2 xl:p-5">
                         <li>
-                            <a className="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="./dashboard.php">
                                 Dashboard /
                             </a>
                         </li>
-                        <li className="font-semibold text-primary">User</li>
+                        <li class="font-semibold text-primary">User</li>
                     </ol>
                 </nav>
             </div>
@@ -97,8 +97,8 @@
                                         <p class='text-black text-center'>" . $row["id"] . "</p>
                                     </td>
                                     <td class='flex items-center justify-center gap-3 p-2 xl:p-5'>
-                                        <div class='block flex-shrink-0'>
-                                            <img src=" . $row["pict"] . " alt='Avatar' width='48' height='48' />
+                                        <div class='flex-shrink-0'>
+                                            <img src='" . $row["pict"] . "' alt='Product Image' width='48' height='48' />
                                         </div>
                                         <p class='text-black'>" . $row["name"] . "</p>
                                     </td>

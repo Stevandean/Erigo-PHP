@@ -12,19 +12,19 @@
         <?php include_once  '../../components/core/sidebar.php'; ?>
         <main class="w-full h-screen bg-slate-100">
             <?php include_once  '../../components/core/header.php'; ?>
-            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <h2 className="text-xl font-semibold text-black">
+            <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <h2 class="text-xl font-semibold text-black">
                     User
                 </h2>
 
                 <nav>
-                    <ol className="flex items-center justify-center p-2 xl:p-5">
+                    <ol class="flex items-center justify-center p-2 xl:p-5">
                         <li>
-                            <a className="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="./dashboard.php">
                                 Dashboard /
                             </a>
                         </li>
-                        <li className="font-semibold text-primary">User</li>
+                        <li class="font-semibold text-primary">User</li>
                     </ol>
                 </nav>
             </div>
@@ -32,7 +32,7 @@
                 <div class="max-w-7xl mx-auto mt-10 rounded-md bg-white px-5 pb-2.5 pt-6 shadow-default sm:px-7.5 xl:pb-1">
                     <h3 class="text-xl font-semibold text-black">Add New User</h3>
                     <div class="container justify-center w-full mb-6 rounded-md">
-                        <form action="../../process/add/add-user.php" method="POST">
+                        <form action="../../process/add/add-user.php" method="POST" enctype="multipart/form-data">
                             <div class="p-6">
                                 <div class="mb-6">
                                     <label for="pict" class="mb-3 block text-sm font-medium text-black">
@@ -95,8 +95,8 @@
                                     Create New User
                                 </button>
                             </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </section>
         </main>
