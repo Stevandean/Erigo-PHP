@@ -1,4 +1,4 @@
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="flex flex-col items-start">
-                                <img src="./assets/img/qris.jpg" alt="payment_method" class="w-auto h-10">
+                                <img src="../../assets/img/qris.jpg" alt="payment_method" class="w-auto h-10">
                                 <p class="text-black text-base font-semibold">Rp.750.000</p>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="mt-[50px]">
-                    <img src="./assets/img/barcode.png" alt="barcode" class="w-[500px] h-[500px]">
+                    <img src="../../assets/img/barcode.png" alt="barcode" class="w-[500px] h-[500px]">
                 </div>
 
                 <div class="mt-[70px]">
@@ -80,7 +80,7 @@
 </body>
 
 </html>
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +119,7 @@
                         </div>
 
                         <div class="flex flex-col items-start">
-                            <img src="./assets/img/qris.jpg" alt="payment_method" class="w-auto h-10">
+                            <img src="../../assets/img/qris.jpg" alt="payment_method" class="w-auto h-10">
                             <p class="text-black text-base font-semibold">Rp.750.000</p>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
             </div>
 
             <div class="mt-[50px]">
-                <img src="./assets/img/barcode.jpeg" alt="barcode" class="w-[500px] h-[500px]">
+                <img src="../../assets/img/barcode.jpeg" alt="barcode" class="w-[500px] h-[500px]">
             </div>
 
             <div class="mt-[70px]">

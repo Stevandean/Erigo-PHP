@@ -1,4 +1,4 @@
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
