@@ -1,4 +1,3 @@
-
 <?php require_once './lib/seo.php'; ?>
 
 <!DOCTYPE html>

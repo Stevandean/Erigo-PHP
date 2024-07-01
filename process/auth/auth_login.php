@@ -1,8 +1,4 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 require_once "../../db/connection.php";
 
 if ($_POST) {
@@ -19,7 +15,8 @@ if ($_POST) {
         $qry = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email . "' AND password = '" . $hashed_password . "'");
         if (mysqli_num_rows($qry) > 0) {
             $dt = mysqli_fetch_array($qry);
-            $_SESSION['users_id'] = $dt['users_id'];
+            session_start();
+            $_SESSION['id'] = $dt['id'];
             $_SESSION['email'] = $dt['email'];
             $_SESSION['status_login'] = true;
             echo "<script>alert('Login Successful!'); location.href='../../index.php';</script>";
@@ -29,4 +26,3 @@ if ($_POST) {
         }
     }
 }
-?>
