@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $sql = "DELETE FROM users WHERE id='$id'";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Deleted successfully!'); window.location.href='../../admin/user/user.php'</script>";
+        echo "<script>alert('Deleted successfully!'); window.location.href='../../page/user/user.php'</script>";
     } else {
         echo "Error deleting: " . mysqli_error($conn);
     }

@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $sql = "DELETE FROM categories WHERE id='$id'";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Deleted successfully!'); window.location.href='../../admin/categories/categories.php'</script>";
+        echo "<script>alert('Deleted successfully!'); window.location.href='../../page/categories/categories.php'</script>";
     } else {
         echo "Error deleting: " . mysqli_error($conn);
     }

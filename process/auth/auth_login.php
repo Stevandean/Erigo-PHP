@@ -19,7 +19,7 @@ if ($_POST) {
             $_SESSION['id'] = $dt['id'];
             $_SESSION['email'] = $dt['email'];
             $_SESSION['status_login'] = true;
-            echo "<script>alert('Login Successful!'); location.href='../../index.php';</script>";
+            echo "<script>alert('Login Successful!'); location.href='../../page/member/index.php';</script>";
             exit;
         } else {
             echo "<script>alert('Login Failed'); location.href='../../login.php';</script>";

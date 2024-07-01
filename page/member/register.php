@@ -1,4 +1,4 @@
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
             </div>
             <!-- title section end -->
             <!-- input nama -->
-            <form action="./process/auth/auth_regist.php" method="POST" class="mt-[20px]">
+            <form action="../../process/auth/auth_regist.php" method="POST" class="mt-[20px]">
                 <div class="flex flex-col items-start mb-[20px]">
                     <label for="name" class="font-['Poppins'] font-medium text-xs mb-2">Name</label>
                     <input type="text" name="name" id="name" class="border border-black rounded-lg w-full h-[35px] px-3">
@@ -52,7 +52,7 @@
                     <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-250 ease-linear text-white h-[35px] mt-[5px] rounded-lg font-['Poppins'] font-semibold flex items-center justify-center">Create Account</button>
                 </div>
                 <div class="flex flex-col items-center justify-center">
-                    <p class="font-['Poppins'] font-medium text-sm text-[#757575]">Already have account? <a href="./login.php" class="text-blue-500 hover:text-blue-600 transition-all duration-250 ease-linear">login</a></p>
+                    <p class="font-['Poppins'] font-medium text-sm text-[#757575]">Already have account? <a href="../../login.php" class="text-blue-500 hover:text-blue-600 transition-all duration-250 ease-linear">login</a></p>
                 </div>
             </form>
             <!-- input nama -->

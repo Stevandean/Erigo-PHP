@@ -5,12 +5,16 @@
         </a>
         <div class="flex items-center">
             <ul class="hidden md:flex px-4 mx-auto text-lg font-bold space-x-6">
-                <li><a class="text-navy hover:text-navy transition-all ease-in-out duration-300" href="./index.php">Home</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./about.php">About</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./product.php">Product</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./maintenance.php">FAQ</a></li>
+                <?php
+                $current_page = basename($_SERVER['PHP_SELF']); // Mendapatkan nama file halaman saat ini
+                ?>
+
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'index.php' ? 'active' : ''; ?>" href="./index.php">Home</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'about.php' ? 'active' : ''; ?>" href="./about.php">About</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'product.php' ? 'active' : ''; ?>" href="./product.php">Product</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'faq.php' ? 'active' : ''; ?>" href="./faq.php">FAQ</a></li>
                 <?php if (isset($_SESSION['status_login']) && $_SESSION['status_login'] === true) { ?>
-                    <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./process/auth/auth_logout.php">Logout</a></button></li>
+                    <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="../../process/auth/auth_logout.php">Logout</a></button></li>
                     <li><span class="font-medium cursor default">|</span></li>
                 <?php } ?>
             </ul>
@@ -18,8 +22,8 @@
             <div class="hidden xl:flex items-center space-x-5 items-center">
 
                 <?php if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) { ?>
-                    <a href="./login.php" id="loginBtn" class="">Login</a>
-                    <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg text-white">Register</a>
+                    <a href="./login.php" id="loginBtn" class="font-bold text-gray hover:text-navy">Login</a>
+                    <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg font-bold text-white">Register</a>
                 <?php } else { ?>
                     <a id="cartBtn" class="flex items-center" href="./shopping_cart.php">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
