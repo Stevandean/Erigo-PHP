@@ -53,12 +53,12 @@
                                 <a class="block pb-2 text-sm" href="./product.php">Product</a>
                             </li>
                             <li>
-                                <a class="block pb-2 text-sm" href="./maintenance.php">FAQ</a>
+                                <a class="block pb-2 text-sm" href="./faq.php">FAQ</a>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full lg:w-4/12 px-4 ml-auto">
-                        <span class="block uppercase text-2xl font-extrabold mb-2">information</span>
+                        <span class="block uppercase text-2xl font-extrabold mb-2">Information</span>
                         <ul class="list-unstyled">
                             <li>
                                 <a class="block pb-2 text-sm" href="./maintenance.php">Erigo Tour</a>
@@ -67,7 +67,7 @@
                                 <a class="block pb-2 text-sm" href="./maintenance.php">Exchanges & Returns</a>
                             </li>
                             <li>
-                                <a class="block pb-2 text-sm" href="./payment_information.php">Payment
+                                <a class="block pb-2 text-sm" href="./faq.php">Payment
                                     Information</a>
                             </li>
                             <li>
@@ -79,7 +79,7 @@
                                     Code</a>
                             </li>
                             <li>
-                                <a class="block pb-2 text-sm" href="./maintenance.php">FAQ</a>
+                                <a class="block pb-2 text-sm" href="./faq.php">FAQ</a>
                             </li>
                         </ul>
                     </div>

@@ -13,4 +13,55 @@
     .custom-shadow:hover {
         box-shadow: 5px 5px 10px rgb(255, 187, 73);
     }
+
+    .dropdown {
+        margin: 20px 0;
+    }
+
+    .dropdown button {
+        background-color: #ffffff;
+        color: black;
+        padding: 16px 16px 16px 0;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown button:hover {
+        background-color: #ddd;
+        border-radius: 10px;
+    }
+
+    .dropdown-content {
+        display: none;
+        overflow: hidden;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+
+    .dropdown-content p {
+        margin: 0;
+    }
+
+    .custom-button {
+        background-color: #f59e0b;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 9999px;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+        background-color: #1d4ed8;
+    }
 </style>

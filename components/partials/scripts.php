@@ -17,6 +17,21 @@
             }
         }
     }
+
+    function toggleDropdown(id, arrowId) {
+        var content = document.getElementById(id);
+        var arrow = document.getElementById(arrowId);
+
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            arrow.classList.add('-rotate-90');
+            arrow.classList.remove('rotate-0');
+        } else {
+            content.style.display = "block";
+            arrow.classList.add('rotate-0');
+            arrow.classList.remove('-rotate-90');
+        }
+    }
 </script>
 
 <!-- Custom JS -->
