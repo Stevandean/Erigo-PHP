@@ -1,4 +1,4 @@
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
             <!-- Title Section End -->
 
             <!-- Form Data -->
-            <form action="./process/auth/auth_login.php" method="POST" class="mt-[20px]">
+            <form action="../../process/auth/auth_login.php" method="POST" class="mt-[20px]">
                 <div class="flex flex-col items-start mb-[20px]">
                     <label for="email" class="font-['Poppins'] font-medium text-sm mb-2">Email Address</label>
                     <input type="email" name="email" id="email" class="border border-black rounded-lg w-full h-[35px] px-3">

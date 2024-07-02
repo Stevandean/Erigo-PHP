@@ -1,12 +1,11 @@
-<?php require_once './lib/seo.php'; ?>
-<?php require_once './db/connection.php'; ?>
-
+<?php session_start(); ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php SEO(""); ?>
+    <?php SEO("Detail Product | Erigo Store"); ?>
 </head>
 
 <?php
@@ -30,18 +29,20 @@ if (mysqli_num_rows($result) > 0) {
 }
 ?>
 
-<body>
-    <main class="w-full min-h-screen font-[Poppins]">
-        <?php require_once './components/core/navbar.php'; ?>
 
+
+<body>
+    <main class="w-full h-screen font-[Poppins]">
+        <?php require_once '../../components/core/navbar.php'; ?>
         <section class="min-h-full flex ">
             <div class="grid xl:grid-cols-5 h-full xl:px-20">
                 <div class="flex items-center justify-center h-full xl:col-span-2">
-                    <img class="rounded-3xl h-5/6" src="./assets/img/Rectangle 4.png" alt="">
+                    <img class="rounded-3xl h-5/6" src="../../assets/img/products_1.png" alt="">
                 </div>
                 <div class="xl:col-span-3 flex flex-col xl:py-16 px-10 space-y-8">
                     <div class="space-y-3 pb-5">
-                        <h1 class="text-xl xl:text-3xl font-semibold " value="<?php echo htmlspecialchars() ?>"></h1>
+                        <h1 class="text-xl xl:text-3xl font-semibold "
+                            value="<?php echo htmlspecialchars($product_name['product_name']); ?>"></h1>
                         <div class="flex items-center space-x-2">
                             <span class="text-lg">3.9</span>
                             <div class="flex">
@@ -115,7 +116,7 @@ if (mysqli_num_rows($result) > 0) {
                     </div>
                     <div class="space-y-3">
                         <h1 class="font-bold tracking-wider text-lg">Sub Total</h1>
-                        <span>Rp.250.000</span>
+                        <span>Rp.49.000</span>
                     </div>
                     <div class="flex space-x-2 xl:space-x-5 text-white font-bold pb-10 xl:pb-0">
                         <button
@@ -128,8 +129,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
             </div>
         </section>
-
-        <?php require_once './components/core/footer.php'; ?>
+        <?php require_once '../../components/core/footer.php'; ?>
     </main>
 </body>
 

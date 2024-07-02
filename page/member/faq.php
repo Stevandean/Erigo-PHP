@@ -1,4 +1,4 @@
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
 
 <body>
     <main class="w-full min-h-screen font-[Poppins]">
-        <?php require_once './components/core/navbar.php'; ?>
+        <?php require_once '../../components/core/navbar.php'; ?>
         <section class="h-50 mb-10">
             <h1 class="text-2xl font-extrabold p-10 uppercase">Frequently Asked Questions (FAQ)</h1>
             <div class="grid grid-cols-2">
@@ -193,22 +193,22 @@
                     <h2 class="text-xl font-bold uppercase">e-wallet</h2>
                     <div class="flex flex-col lg:flex-row items-center justify-center gap-[50px] mt-[50px]">
                         <div class="border-[3px] border-[#F2F2F2] rounded-md w-28 h-28 p-3">
-                            <img class="flex items-center justify-center mt-2" src="./assets/img/dana.png" alt="">
+                            <img class="flex items-center justify-center mt-2" src="../../assets/img/dana.png" alt="">
                         </div>
                         <div class="border-[3px] border-[#F2F2F2] rounded-md w-28 h-28 p-3">
-                            <img class="flex items-center justify-center mt-7" src="./assets/img/shopeepay.png" alt="">
+                            <img class="flex items-center justify-center mt-7" src="../../assets/img/shopeepay.png" alt="">
                         </div>
                         <div class="border-[3px] border-[#F2F2F2] rounded-md w-28 h-28 p-3">
-                            <img class="flex items-center justify-center mt-7" src="./assets/img/truemoney.png" alt="">
+                            <img class="flex items-center justify-center mt-7" src="../../assets/img/truemoney.png" alt="">
                         </div>
                     </div>
 
                     <div class="flex flex-col lg:flex-row items-center justify-center gap-[50px] mt-[30px]">
                         <div class="border-[3px] border-[#F2F2F2] rounded-md w-28 h-28">
-                            <img class="flex items-center justify-center mt-1" src="./assets/img/gopay.png" alt="">
+                            <img class="flex items-center justify-center mt-1" src="../../assets/img/gopay.png" alt="">
                         </div>
                         <div class="border-[3px] border-[#F2F2F2] rounded-md w-28 h-28 p-3">
-                            <img class="flex items-center justify-center mt-1" src="./assets/img/astrapay.png" alt="">
+                            <img class="flex items-center justify-center mt-1" src="../../assets/img/astrapay.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -280,7 +280,7 @@
                 </div>
             </div>
         </section>
-        <?php require_once './components/core/footer.php'; ?>
+        <?php require_once '../../components/core/footer.php'; ?>
     </main>
 </body>
 

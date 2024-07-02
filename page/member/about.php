@@ -1,4 +1,4 @@
-<?php require_once './lib/seo.php'; ?>
+<?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,12 +9,12 @@
 
 <body>
     <main class="w-full h-screen font-[Poppins]">
-        <?php require_once './components/core/navbar.php'; ?>
+        <?php require_once '../../components/core/navbar.php'; ?>
 
         <section class="min-h-full flex items-center">
             <div class="grid xl:grid-cols-5 h-full p-10 gap-x-28">
                 <div class="flex items-center justify-center h-full xl:col-span-2">
-                    <img class="" src="./assets/img/about_us.jpg" alt="">
+                    <img class="" src="../../assets/img/about_us.jpg" alt="">
                 </div>
                 <div class="xl:col-span-3 flex flex-col justify-center space-y-6 mt-10 xl:mt-0">
                     <h1 class="text-2xl xl:text-3xl font-extrabold ">Express Yourself with Erigo, <br>Elevate Your
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        <?php require_once './components/core/footer.php'; ?>
+        <?php require_once '../../components/core/footer.php'; ?>
     </main>
 </body>
 

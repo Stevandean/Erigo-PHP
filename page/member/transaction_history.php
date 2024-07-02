@@ -32,9 +32,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon"
-        href="//erigostore.co.id/cdn/shop/files/New_Logo_Erigo_81faf464-002f-434b-bae0-632202133822_32x32.png?v=1692002740"
-        type="image/png">
+    <link rel="shortcut icon" href="//erigostore.co.id/cdn/shop/files/New_Logo_Erigo_81faf464-002f-434b-bae0-632202133822_32x32.png?v=1692002740" type="image/png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
     </style>
@@ -59,7 +57,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
 
 <body>
     <div class="w-full h-screen font-[Poppins]">
-        <?php require_once './components/core/navbar.php'; ?>
+        <?php require_once '../../components/core/navbar.php'; ?>
 
         <div class="min-h-full p-10">
             <h1 class="text-black text-2xl font-extrabold place-items-end p-[5px] ml-[17px] uppercase">transaction
@@ -107,12 +105,12 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
 </html>
 =======
         </div>
-        <?php require_once './components/core/footer.php'; ?>
+        <?php require_once '../../components/core/footer.php'; ?>
     </div>
 
     <!-- javascript -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             // Memeriksa keberadaan variabel userAcc di local storage
             var userAcc = localStorage.getItem('userAcc');
 
@@ -135,8 +133,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
                 // Sembunyikan tombol login dan register
                 document.getElementById('loginBtnMbl').style.display = 'none';
                 document.getElementById('registerBtnMbl').style.display = 'none';
-            }
-            else {
+            } else {
                 // untuk dekstop mode
                 // Jika userAcc tidak ada, tampilkan tombol login dan register
                 document.getElementById('loginBtn').style.display = 'inline';
@@ -166,5 +163,9 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
 
 </body>
 
+<<<<<<< HEAD:transaction_history.php
 </html>
 >>>>>>> c41a4cd00217de34e9a2dcb5bd31e4ef2f8e6e17
+=======
+</html>
+>>>>>>> eda78ddfdac4d469fb07868171ec7d4d49782494:page/member/transaction_history.php
