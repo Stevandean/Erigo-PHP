@@ -64,4 +64,9 @@
     .custom-button:hover {
         background-color: #1d4ed8;
     }
+
+    .active {
+        font-weight: bold;
+        color: #1B2E57;
+    }
 </style>

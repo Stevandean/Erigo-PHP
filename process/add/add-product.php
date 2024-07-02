@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categories_id = $_POST['categories_id'];
 
     // Handle file upload
-    $targetDir = "../../uploads/";
+    $targetDir = "../../assets/product";
     $fileName = basename($_FILES["pict"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql = "INSERT INTO product (product_name, price, `desc`, size, stock, pict, categories_id) VALUES ('$productName', '$price', '$desc', '$size', '$stock', '$targetFilePath', '$categories_id')";
 
             if ($conn->query($sql) === TRUE) {
-                header("location: ../../admin/product/product.php");
+                header("<script>alert('Created successfully!'); window.location.href='../../page/product/product.php'</script>");
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
@@ -48,4 +48,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $conn->close();
-?>

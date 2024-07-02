@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO categories (categories_name) VALUES ('$categories_name')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Created successfully!'); window.location.href='../../admin/categories/categories.php'</script>";
+        echo "<script>alert('Created successfully!'); window.location.href='../../page/categories/categories.php'</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

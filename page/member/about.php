@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
@@ -10,7 +13,6 @@
 <body>
     <main class="w-full h-screen font-[Poppins]">
         <?php require_once '../../components/core/navbar.php'; ?>
-
         <section class="min-h-full flex items-center">
             <div class="grid xl:grid-cols-5 h-full p-10 gap-x-28">
                 <div class="flex items-center justify-center h-full xl:col-span-2">

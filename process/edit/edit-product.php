@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE product SET product_name='$product_name', price='$price', `desc`='$desc', `size`='$size', stock='$stock', pict='$pict', categories_id='$categories_id'  WHERE id='$id'";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Updated successfully!'); window.location.href='../../admin/categories/categories.php'</script>";
+        echo "<script>alert('Updated successfully!'); window.location.href='../../page/categories/categories.php'</script>";
     } else {
         echo "Error updating: " . mysqli_error($conn);
     }

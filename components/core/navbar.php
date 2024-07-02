@@ -1,9 +1,3 @@
-<?php
-// Start the session at the beginning of your PHP file
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-?>
 <nav class="shadow-lg px-5 md:px-16 h-auto md:h-16">
     <div class="py-6 flex h-full w-full items-center justify-start justify-between">
         <a class="text-3xl font-extrabold font-heading text-black uppercase" href="./">
@@ -11,20 +5,25 @@ if (session_status() == PHP_SESSION_NONE) {
         </a>
         <div class="flex items-center">
             <ul class="hidden md:flex px-4 mx-auto text-lg font-bold space-x-6">
-                <li><a class="text-navy hover:text-navy transition-all ease-in-out duration-300" href="./index.php">Home</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./about.php">About</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./product.php">Product</a></li>
-                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./faq.php">FAQ</a></li>
+                <?php
+                $current_page = basename($_SERVER['PHP_SELF']); // Mendapatkan nama file halaman saat ini
+                ?>
+
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'index.php' ? 'active' : ''; ?>" href="./index.php">Home</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'about.php' ? 'active' : ''; ?>" href="./about.php">About</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'product.php' ? 'active' : ''; ?>" href="./product.php">Product</a></li>
+                <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'faq.php' ? 'active' : ''; ?>" href="./faq.php">FAQ</a></li>
                 <?php if (isset($_SESSION['status_login']) && $_SESSION['status_login'] === true) { ?>
-                    <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="./process/auth/auth_logout.php">Logout</a></button></li>
+                    <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="../../process/auth/auth_logout.php">Logout</a></button></li>
                     <li><span class="font-medium cursor default">|</span></li>
                 <?php } ?>
             </ul>
 
             <div class="hidden xl:flex items-center space-x-5 items-center">
+
                 <?php if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) { ?>
-                    <a href="./login.php" id="loginBtn" class="">Login</a>
-                    <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg text-white">Register</a>
+                    <a href="./login.php" id="loginBtn" class="font-bold text-gray hover:text-navy">Login</a>
+                    <a href="./register.php" id="registerBtn" class="bg-navy px-3 py-1.5 rounded-lg font-bold text-white">Register</a>
                 <?php } else { ?>
                     <a id="cartBtn" class="flex items-center" href="./shopping_cart.php">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,6 +93,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <img class="overflow-clip w-9 h-9 object-cover rounded-full" src="./assets/img/products_2.png" alt="">
                 </a>
             <?php } ?>
+
         </div>
     </div>
 </nav>

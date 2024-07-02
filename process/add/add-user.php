@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Directory to save the uploaded file
-    $target_dir = "../../uploads/";
+    $target_dir = "../../assets/user";
     $target_file = $target_dir . basename($_FILES["pict"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
+        // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["pict"]["tmp_name"], $target_file)) {
             echo "The file " . htmlspecialchars(basename($_FILES["pict"]["name"])) . " has been uploaded.";
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO users (pict, `name`, `address`, phone, email, password, `role`) VALUES ('$target_file', '$name', '$address', '$phone', '$email', '$password', '$role')";
 
             if (mysqli_query($conn, $sql)) {
-                echo "<script>alert('Created successfully!'); window.location.href='../../admin/user/user.php'</script>";
+                echo "<script>alert('Created successfully!'); window.location.href='../../page/user/user.php'</script>";
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
