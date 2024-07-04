@@ -10,7 +10,7 @@
 <body>
     <main class="w-full h-screen font-[Poppins]">
         <?php require_once '../../components/core/navbar.php'; ?>
-        <section class="min-h-full flex ">
+        <section class="min-h-full flex">
             <div class="grid xl:grid-cols-5 h-full xl:px-20">
                 <div class="flex items-center justify-center h-full xl:col-span-2">
                     <img class="rounded-3xl h-5/6" src="../../assets/img/products_1.png" alt="">

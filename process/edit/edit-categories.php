@@ -20,8 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE categories SET categories_name='$categories_name' WHERE id='$id'";
 
     if (mysqli_query($conn, $sql)) {
-        echo 'berhasil';
-        // echo "<script>alert('Updated successfully!'); window.location.href='../../page/categories/categories.php'</script>";
+        echo "<script>alert('Updated successfully!'); window.location.href='../../page/categories/categories.php'</script>";
     } else {
         echo "Error updating: " . mysqli_error($conn);
     }
