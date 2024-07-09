@@ -22,8 +22,18 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT id, product_name, price, `desc`, `size`, stock, pict, categories_id FROM product WHERE id='" . $_GET['id'] . "'";
+$sql = "SELECT id, product_name, price, `desc`, `size`, stock, pict, categories_id FROM product WHERE id=''" . $_GET['id'] . "'";
 $result = mysqli_query($conn, $sql);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $product_name = $_POST['product_name'];
+    $price = $_POST['price'];
+    $desc = $_POST['desc'];
+    $size = $_POST['size'];
+    $stock = $_POST['stock'];
+    $pict = $_POST['pict'];
+    $categories_id = $_POST['categories_id'];
+}
 
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -41,7 +51,8 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="xl:col-span-3 flex flex-col xl:py-16 px-10 space-y-8">
                     <div class="space-y-3 pb-5">
-                        <h1 class="text-xl xl:text-3xl font-semibold " value="<?php echo htmlspecialchars() ?>"></h1>
+                        <h1 class="text-xl xl:text-3xl font-semibold"
+                            value="<?php echo htmlspecialchars($product_name)?>"></h1>
                         <div class="flex items-center space-x-2">
                             <span class="text-lg">3.9</span>
                             <div class="flex">
@@ -82,15 +93,20 @@ if (mysqli_num_rows($result) > 0) {
                         <h1 class="font-semibold tracking-wider text-lg">Size</h1>
                         <div class=" xl:space-x-3 space-y-3 xl:space-y-0">
                             <button
-                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">S</button>
+                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white"
+                                value="<?php echo $row['size'] ?>"></button>
                             <button
-                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">M</button>
+                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white"
+                                value="<?php echo $row['size'] ?>"></button>
                             <button
-                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">L</button>
+                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white"
+                                value="<?php echo $row['size'] ?>"></button>
                             <button
-                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">XL</button>
+                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white"
+                                value="<?php echo $row['size'] ?>"></button>
                             <button
-                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">XXL</button>
+                                class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white"
+                                value="<?php echo $row['size'] ?>"></button>
                         </div>
                     </div>
                     <div class="space-y-3">
