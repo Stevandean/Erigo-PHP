@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql = "INSERT INTO product (product_name, price, `desc`, size, stock, pict, categories_id) VALUES ('$productName', '$price', '$desc', '$size', '$stock', '$targetFilePath', '$categories_id')";
 
             if ($conn->query($sql) === TRUE) {
-                header("<script>alert('Created successfully!'); window.location.href='../../page/product/product.php'</script>");
+                echo "<script>alert('Created successfully!'); window.location.href='../../page/product/product.php'</script>";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
