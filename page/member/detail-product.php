@@ -21,11 +21,15 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT id, product_name, price, `desc`, `size`, stock, pict, categories_id FROM product WHERE id='" . $_GET['id'] . "'";
-$result = mysqli_query($conn, $sql);
+// Cek apakah parameter 'id' ada dalam $_GET
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $id = mysqli_real_escape_string($conn, $_GET['id']); // Mencegah SQL Injection
+    $sql = "SELECT id, product_name, price, `desc`, `size`, stock, pict, categories_id FROM product WHERE id='$id'";
+    $result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+    }
 }
 ?>
 
@@ -35,7 +39,8 @@ if (mysqli_num_rows($result) > 0) {
         <section class="min-h-full flex">
             <div class="grid xl:grid-cols-5 h-full xl:px-20">
                 <div class="flex items-center justify-center h-full xl:col-span-2">
-                    <img class="rounded-3xl h-5/6" src="<?php echo htmlspecialchars($row['pict']); ?>" alt="product_name">
+                    <img class="rounded-3xl h-5/6" src="<?php echo htmlspecialchars($row['pict']); ?>"
+                        alt="product_name">
                 </div>
                 <div class="xl:col-span-3 flex flex-col xl:py-16 px-10 space-y-8">
                     <div class="space-y-3 pb-5">
@@ -98,6 +103,22 @@ if (mysqli_num_rows($result) > 0) {
         </section>
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
+
+    <script>
+        function increment() {
+            let qtyInput = document.getElementById('qtyinput');
+            let currentQty = parseInt(qtyInput.value);
+            qtyInput.value = currentQty + 1;
+        }
+
+        function decrement() {
+            let qtyInput = document.getElementById('qtyinput');
+            let currentQty = parseInt(qtyInput.value);
+            if (currentQty > 1) {
+                qtyInput.value = currentQty - 1;
+            }
+        }
+    </script>
 </body>
 
 </html>
