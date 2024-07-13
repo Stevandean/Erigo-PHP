@@ -29,7 +29,7 @@ session_start();
                 die("Connection failed: " . mysqli_connect_error());
             }
 
-            $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.size, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
+            $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
@@ -42,9 +42,13 @@ session_start();
                         <div class='flex flex-col relative justify-center items-center custom-shadow rounded-lg py-5'>
                             <div class='absolute top-0 left-0 rounded-tl-xl px-3 py-0.5 text-white'>
                             </div>
-                            <img class='w-3/4 rounded-lg mb-5' src='<?php echo $row["pict"]; ?>' alt=''>
+                            <a class="flex items-center justify-center" href='detail-product.php?id=<?php echo $row["id"]; ?>'>
+                                <img class='w-3/4 rounded-lg mb-5' src='<?php echo $row["pict"]; ?>' alt=''>
+                            </a>
                             <h1 class='font-semibold text-xl mb-10'>
-                                <p><?php echo $row["product_name"]; ?></p>
+                                <a href='detail-product.php?id=<?php echo $row["id"]; ?>'>
+                                    <p><?php echo $row["product_name"]; ?></p>
+                                </a>
                             </h1>
                             <h1 class='font-bold text-xl'>
                                 <p>Rp. <?php echo $row["price"]; ?></p>

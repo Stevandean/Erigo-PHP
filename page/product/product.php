@@ -12,7 +12,7 @@
         <?php include_once '../../components/core/sidebar.php'; ?>
         <main class="w-full h-screen bg-slate-100">
             <?php include_once '../../components/core/header.php'; ?>
-            <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="max-w-7xl mx-auto mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <h2 class="text-xl font-semibold text-black">
                     Product
                 </h2>
@@ -28,7 +28,7 @@
                 </nav>
             </div>
             <section>
-                <div class="max-w-7xl mx-auto mt-10 rounded-md bg-white px-5 pb-2.5 pt-6 shadow-default sm:px-7.5 xl:pb-1">
+                <div class="max-w-7xl mx-auto mt-2 rounded-md bg-white px-5 pb-2.5 pt-6 shadow-default sm:px-7.5 xl:pb-1">
                     <h4 class="text-xl font-semibold text-black">
                         All Product
                     </h4>
@@ -46,7 +46,7 @@
                             die("Connection failed: " . mysqli_connect_error());
                         }
 
-                        $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.size, p.stock, p.pict, c.categories_name
+                        $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.stock, p.pict, c.categories_name
                                 FROM product p
                                 JOIN categories c ON p.categories_id = c.id";
                         $result = mysqli_query($conn, $sql);
@@ -73,11 +73,6 @@
                                     <th class='p-2 xl:p-5'>
                                         <h5 class='text-sm font-medium uppercase xsm:text-base'>
                                             Description
-                                        </h5>
-                                    </th>
-                                    <th class='p-2 xl:p-5'>
-                                        <h5 class='text-sm font-medium uppercase xsm:text-base'>
-                                            Size
                                         </h5>
                                     </th>
                                     <th class='p-2 xl:p-5'>
@@ -114,9 +109,6 @@
                                     </td>
                                     <td class='p-2 xl:p-5'>
                                         <p class='text-center text-black'>" . $row["desc"] . "</p>
-                                    </td>
-                                    <td class='p-2 xl:p-5'>
-                                        <p class='text-center text-black'>" . $row["size"] . "</p>
                                     </td>
                                     <td class='p-2 xl:p-5'>
                                         <p class='text-center text-black'>" . $row["stock"] . "</p>

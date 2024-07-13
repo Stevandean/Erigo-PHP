@@ -65,7 +65,7 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.size, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
+                $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {

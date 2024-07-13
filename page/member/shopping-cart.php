@@ -15,14 +15,21 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$id = $_SESSION['id']; // Pastikan user sudah login dan id disimpan di sesi
+if (!isset($_SESSION['status_login'])) {
+    die("User is not logged in.");
+}
 
-$sql = "SELECT o.id, u.id AS users_id, p.id AS product_id, p.product_name, p.size, p.price, o.quantity
+$user_id = $_SESSION['status_login'];
+
+$sql = "SELECT o.id, u.id AS users_id, p.id AS product_id, p.product_name, p.price, o.quantity
         FROM `order` o
         JOIN users u ON o.users_id = u.id
         JOIN product p ON o.product_id = p.id
         WHERE u.id = ?";
 $stmt = $conn->prepare($sql);
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error);
+}
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
