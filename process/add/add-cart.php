@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // SQL to create a data
-    $sql = "INSERT INTO `order` (product_id, users_id, quantity, 'size') VALUES ('$product_id', '$users_id', '$quantity', '$size')";
+    $sql = "INSERT INTO `order` (product_id, users_id, quantity, `size`) VALUES ('$product_id', '$users_id', '$quantity', '$size')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Created successfully!'); window.location.href='../../page/member/shopping-cart.php'</script>";

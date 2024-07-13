@@ -6,6 +6,20 @@
 
 <head>
     <?php SEO("Detail Product | Erigo Store"); ?>
+    <style>
+        .size-button {
+            border: 1px solid #000;
+            border-radius: 8px;
+            padding: 8px 16px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .size-button:hover,
+        .size-button.active {
+            background-color: navy;
+            color: white;
+        }
+    </style>
 </head>
 
 <?php
@@ -66,21 +80,22 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         </div>
                     </div>
                     <div class="space-y-3">
-                        <h1 for="size" class="font-semibold tracking-wider text-lg">Size</h1>
-                        <div class=" xl:space-x-3 space-y-3 xl:space-y-0">
-                            <button name="size" id="size" class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">S</button>
-                            <button name="size" id="size" class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">M</button>
-                            <button name="size" id="size" class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">L</button>
-                            <button name="size" id="size" class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">XL</button>
-                            <button name="size" id="size" class="border border-1 rounded-lg px-8 py-1.5 hover:bg-navy hover:text-white transition-all ease-in-out duration-300 focus:bg-navy focus:text-white">XXL</button>
+                        <h1 class="font-semibold tracking-wider text-lg">Size</h1>
+                        <div class="xl:space-x-3 space-y-3 xl:space-y-0">
+                            <button type="button" class="size-button" data-size="S">S</button>
+                            <button type="button" class="size-button" data-size="M">M</button>
+                            <button type="button" class="size-button" data-size="L">L</button>
+                            <button type="button" class="size-button" data-size="XL">XL</button>
+                            <button type="button" class="size-button" data-size="XXL">XXL</button>
                         </div>
+                        <input type="hidden" name="size" id="selectedSize">
                     </div>
                     <div class="space-y-3">
                         <h1 class="font-semibold tracking-wider text-lg">Quantity</h1>
                         <div class="flex">
-                            <button onclick="decrement()" type="click" class="w-8 h-8 border rounded-l-md">-</button>
+                            <button type="button" onclick="decrement()" class="w-8 h-8 border rounded-l-md">-</button>
                             <input id="quantity" name="quantity" type="text" class="w-16 h-8 text-center border-y" value="1">
-                            <button onclick="increment()" type="click" class="w-8 h-8 border rounded-r-md">+</button>
+                            <button type="button" onclick="increment()" class="w-8 h-8 border rounded-r-md">+</button>
                         </div>
                     </div>
                     <div class="space-y-3">
@@ -98,7 +113,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
                             <button type="submit" class="bg-navy px-3 py-1.5 rounded-lg hover:scale-[1.2] transition-all ease-in-out duration-300">Add to cart</button>
                         </div>
-                        <button class="bg-gray px-3 py-1.5 rounded-lg hover:scale-[1.2] transition-all ease-in-out duration-300">Buy Now</button>
+                        <button type="button" class="bg-gray px-3 py-1.5 rounded-lg hover:scale-[1.2] transition-all ease-in-out duration-300">Buy Now</button>
                     </div>
                 </form>
             </div>
@@ -106,6 +121,17 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
     <script>
+        const sizeButtons = document.querySelectorAll('.size-button');
+        const selectedSizeInput = document.getElementById('selectedSize');
+
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                selectedSizeInput.value = button.getAttribute('data-size');
+            });
+        });
+
         function increment() {
             let qtyInput = document.getElementById('quantity');
             let currentQty = parseInt(qtyInput.value);
