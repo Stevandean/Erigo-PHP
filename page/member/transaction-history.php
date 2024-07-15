@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<?php require_once './lib/seo.php'; ?>
-
-=======
 <?php
 session_start();
 
@@ -10,25 +6,10 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
     exit();
 }
 ?>
->>>>>>> c41a4cd00217de34e9a2dcb5bd31e4ef2f8e6e17
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
-    <?php SEO(""); ?>
-</head>
-
-<body>
-    <main class="w-full min-h-screen font-[Poppins]">
-        <?php require_once './components/core/navbar.php'; ?>
-
-        <section class="min-h-full p-10">
-            <h1 class="text-black text-2xl font-extrabold place-items-end p-[5px] ml-[17px] uppercase">transaction
-                history</h1>
-            <div class="flex justify-center items-center p-[20px]">
-                <table class=" shadow-md sm:rounded-lg table-auto w-3/4 flex-col text-xs overflow-scroll">
-=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,7 +45,6 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
                 history</h1>
             <div class="flex justify-center items-center p-[20px]">
                 <table class=" shadow-md sm:rounded-lg table-auto bg-white w-3/4 flex-col text-xs overflow-scroll">
->>>>>>> c41a4cd00217de34e9a2dcb5bd31e4ef2f8e6e17
                     <thead>
                         <tr>
                             <th class="px-6 py-3 text-left">date</th>
