@@ -100,9 +100,8 @@
                 mysqli_close($conn);
                 ?>
 
-            <button
-                class="bg-navy px-3 py-1.5 rounded-lg text-white text-lg font-semibold mt-10 hover:scale-[1.2] transition-all ease-in-out duration-300">Show
-                More</button>
+                <button class="bg-navy px-3 py-1.5 rounded-lg text-white text-lg font-semibold mt-10 hover:scale-[1.2] transition-all ease-in-out duration-300">Show
+                    More</button>
             </div>
         </section>
 
