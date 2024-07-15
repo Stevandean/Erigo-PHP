@@ -13,10 +13,9 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $productName = $_POST['product_name'];
+    $product_name = $_POST['product_name'];
     $price = $_POST['price'];
     $desc = $_POST['desc'];
-    $size = $_POST['size'];
     $stock = $_POST['stock'];
     $categories_id = $_POST['categories_id'];
 
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Upload file to server
         if (move_uploaded_file($_FILES["pict"]["tmp_name"], $targetFilePath)) {
             // Insert image file name into database
-            $sql = "INSERT INTO product (product_name, price, `desc`, size, stock, pict, categories_id) VALUES ('$productName', '$price', '$desc', '$size', '$stock', '$targetFilePath', '$categories_id')";
+            $sql = "INSERT INTO product (product_name, price, `desc`, stock, pict, categories_id) VALUES ('$product_name', '$price', '$desc', '$stock', '$targetFilePath', '$categories_id')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "<script>alert('Created successfully!'); window.location.href='../../page/product/product.php'</script>";

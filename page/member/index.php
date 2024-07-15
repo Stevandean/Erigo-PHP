@@ -28,7 +28,8 @@
                         <h1 class="font-bold text-2xl uppercase">erigo parfume</h1>
                         <p>Koleksi Perfume Erigo sebuah rahasia tampil beda dengan aroma yang menarik perhatian, pilih
                             aroma yang sesuai dengan kepribadian dan penampilanmu.</p>
-                        <button class="bg-navy text-white rounded-lg px-3 py-1.5 text-xl font-semibold hover:scale-[1.2] transition-all ease-in-out duration-300">Shop
+                        <button
+                            class="bg-navy text-white rounded-lg px-3 py-1.5 text-xl font-semibold hover:scale-[1.2] transition-all ease-in-out duration-300">Shop
                             Now</button>
                     </div>
                     <img class="rounded-lg cursor-pointer" src="../../assets/img/new arrivals_2.png" alt="">
@@ -64,32 +65,33 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.size, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
+                $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
-                ?>
-                    <h1 class='text-2xl font-bold text-black uppercase cursor-default mb-5'>featured products</h1>
-                    <div class='grid grid-cols-1 xl:grid-cols-4 w-full gap-x-8 gap-y-10'>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<h1 class='text-2xl font-bold text-black uppercase cursor-default mb-5'>featured products</h1>
+                    <div class='grid grid-cols-1 xl:grid-cols-4 w-full gap-x-8 gap-y-10'>";
+                    ?>
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                            <div class='flex flex-col relative justify-center items-center custom-shadow rounded-lg p-5'>
-                                <div class='absolute top-0 left-0 bg-red rounded-tl-xl px-3 py-0.5 text-white'>
-                                    New
-                                </div>
-                                <img class='w-3/4 rounded-lg mb-5' src='<?php echo $row["pict"]; ?>' alt=''>
-                                <h1 class='font-semibold text-xl mb-10'>
-                                    <p><?php echo $row["product_name"]; ?></p>
-                                </h1>
-                                <h1 class='font-bold text-xl'>
-                                    <p>Rp. <?php echo $row["price"]; ?></p>
-                                </h1>
+                        <a href='./detail-product.php?id=<?php echo $row["id"]; ?>'
+                            class='flex flex-col relative justify-center items-center custom-shadow rounded-lg py-5'>
+                            <div class='absolute top-0 left-0 bg-red rounded-tl-xl px-3 py-0.5 text-white'>
+                                New
                             </div>
+                            <img class='w-3/4 rounded-lg mb-5' src='<?php echo $row["pict"]; ?>' alt=''>
+                            <h1 class='font-semibold text-xl mb-10'>
+                                <p><?php echo $row["product_name"]; ?></p>
+                            </h1>
+                            <h1 class='font-bold text-xl'>
+                                <p>Rp. <?php echo $row["price"]; ?></p>
+                            </h1>
+                        </a>
                         <?php
-                        }
-                        ?>
-                    </div>
+                    }
+                    ?>
+                </div>
                 <?php
                 } else {
                     echo "0 results";
@@ -99,8 +101,7 @@
                 ?>
 
                 <button class="bg-navy px-3 py-1.5 rounded-lg text-white text-lg font-semibold mt-10 hover:scale-[1.2] transition-all ease-in-out duration-300">Show
-                    More
-                </button>
+                    More</button>
             </div>
         </section>
 
@@ -108,4 +109,4 @@
     </main>
 </body>
 
-</html
+</html>

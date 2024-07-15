@@ -62,7 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php require_once '../../components/core/navbar.php'; ?>
 
         <section class="min-h-full p-10">
-            <h1 class="font-['Poppins'] text-black text-2xl font-extrabold place-items-end p-[5px] flex items-center mb-7 xl:mb-0 xl:ml-[17px] uppercase">
+            <h1
+                class="font-['Poppins'] text-black text-2xl font-extrabold place-items-end p-[5px] flex items-center mb-7 xl:mb-0 xl:ml-[17px] uppercase">
                 Profile Setting
             </h1>
             <form class="w-full flex flex-col justify-center items-center space-y-8" method="POST" action="">
@@ -72,26 +73,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="flex flex-col w-5/6 xl:w-2/4 space-y-1">
                     <span class="font-semibold">Name</span>
-                    <input class="border bg-white rounded-md h-[30px] px-5" type="text" name="name" value="<?php echo htmlspecialchars($user['name']); ?>">
+                    <input class="border bg-white rounded-md h-[30px] px-5" type="text" name="name"
+                        value="<?php echo htmlspecialchars($user['name']); ?>">
                 </div>
                 <div class="flex flex-col w-5/6 xl:w-2/4 space-y-3">
                     <span class="font-semibold">Address</span>
-                    <input class="border bg-white rounded-md h-[50px]" type="text" name="address" value="<?php echo htmlspecialchars($user['address']); ?>">
+                    <input class="border bg-white rounded-md h-[50px]" type="text" name="address"
+                        value="<?php echo htmlspecialchars($user['address']); ?>">
                 </div>
                 <div class="flex flex-col w-5/6 xl:w-2/4 space-y-3">
                     <span class="font-semibold">Phone</span>
-                    <input class="border bg-white rounded-md h-[30px] px-5" type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>">
+                    <input class="border bg-white rounded-md h-[30px] px-5" type="text" name="phone"
+                        value="<?php echo htmlspecialchars($user['phone']); ?>">
                 </div>
                 <div class="flex flex-col w-5/6 xl:w-2/4 space-y-3">
                     <span class="font-semibold">Email Address</span>
-                    <input class="border bg-white rounded-md h-[30px] px-5" type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
+                    <input class="border bg-white rounded-md h-[30px] px-5" type="email" name="email"
+                        value="<?php echo htmlspecialchars($user['email']); ?>">
                 </div>
                 <div class="flex flex-col w-5/6 xl:w-2/4 space-y-3">
                     <span class="font-semibold">Password</span>
-                    <input class="border bg-white rounded-md h-[30px] px-5" type="password" name="password" value="<?php echo htmlspecialchars($user['password']); ?>">
+                    <input class="border bg-white rounded-md h-[30px] px-5" type="password" name="password"
+                        value="<?php echo htmlspecialchars($user['password']); ?>">
                 </div>
                 <div class="flex justify-end w-5/6 xl:w-2/4">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-20 flex-col items-center justify-center">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-20 flex-col items-center justify-center">
                         Save
                     </button>
                 </div>
