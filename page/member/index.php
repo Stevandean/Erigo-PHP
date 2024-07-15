@@ -74,7 +74,7 @@
                         <?php
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                            <div class='flex flex-col relative justify-center items-center custom-shadow rounded-lg py-5'>
+                            <div class='flex flex-col relative justify-center items-center custom-shadow rounded-lg p-5'>
                                 <div class='absolute top-0 left-0 bg-red rounded-tl-xl px-3 py-0.5 text-white'>
                                     New
                                 </div>
@@ -99,7 +99,8 @@
                 ?>
 
                 <button class="bg-navy px-3 py-1.5 rounded-lg text-white text-lg font-semibold mt-10 hover:scale-[1.2] transition-all ease-in-out duration-300">Show
-                    More</button>
+                    More
+                </button>
             </div>
         </section>
 

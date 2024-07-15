@@ -4,9 +4,9 @@
             erigo
         </a>
         <div class="flex items-center">
-            <ul class="hidden md:flex px-4 mx-auto text-lg font-bold space-x-6">
+            <ul class="hidden md:flex px-4 items-center mx-auto text-lg font-bold space-x-6">
                 <?php
-                $current_page = basename($_SERVER['PHP_SELF']); // Mendapatkan nama file halaman saat ini
+                $current_page = basename($_SERVER['PHP_SELF'])
                 ?>
 
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'index.php' ? 'active' : ''; ?>" href="./index.php">Home</a></li>
@@ -15,8 +15,12 @@
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'faq.php' ? 'active' : ''; ?>" href="./faq.php">FAQ</a></li>
                 <?php if (isset($_SESSION['status_login']) && $_SESSION['status_login'] === true) { ?>
                     <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="../../process/auth/auth_logout.php">Logout</a></button></li>
-                    <li><span class="font-medium cursor default">|</span></li>
                 <?php } ?>
+                <div class="relative z-auto">
+                    <input type="text" id="search" placeholder="Search products..." class="border py-1 px-2 rounded">
+                    <div id="search-results" class="absolute bg-white border border-gray-300 rounded mt-1 shadow-lg w-full hidden z-auto"></div>
+                </div>
+                <li><span class="font-medium cursor default">|</span></li>
             </ul>
 
             <div class="hidden xl:flex items-center space-x-5 items-center">
@@ -93,7 +97,35 @@
                     <img class="overflow-clip w-9 h-9 object-cover rounded-full" src="./assets/img/products_2.png" alt="">
                 </a>
             <?php } ?>
-
         </div>
     </div>
 </nav>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search').on('input', function() {
+            var query = $(this).val();
+            if (query.length > 0) {
+                $.ajax({
+                    url: '../../lib/search.php',
+                    method: 'GET',
+                    data: {
+                        query: query
+                    },
+                    success: function(data) {
+                        $('#search-results').html(data).show();
+                    }
+                });
+            } else {
+                $('#search-results').hide();
+            }
+        });
+
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('#search').length) {
+                $('#search-results').hide();
+            }
+        });
+    });
+</script>
