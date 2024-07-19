@@ -14,7 +14,7 @@
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'product.php' ? 'active' : ''; ?>" href="./product.php">Product</a></li>
                 <li><a class="text-gray hover:text-navy transition-all ease-in-out duration-300 <?php echo $current_page == 'faq.php' ? 'active' : ''; ?>" href="./faq.php">FAQ</a></li>
                 <?php if (isset($_SESSION['status_login']) && $_SESSION['status_login'] === true) { ?>
-                    <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="../../process/auth/auth_logout.php">Logout</a></button></li>
+                    <li><button class="text-gray"><a class="text-gray hover:text-navy transition-all ease-in-out duration-300" href="../../process/auth/auth-logout.php">Logout</a></button></li>
                 <?php } ?>
                 <div class="relative z-auto">
                     <input type="text" id="search" placeholder="Search products..." class="border py-1 px-2 rounded">
@@ -39,14 +39,14 @@
                             </span>
                         </span>
                     </a>
-                    <a href="./profile_setting.php" id="profileBtn">
+                    <a href="./profile-setting.php" id="profileBtn">
                         <img class="overflow-clip w-9 h-9 object-cover rounded-full" src="./assets/img/products_2.png" alt="">
                     </a>
                 <?php } ?>
             </div>
         </div>
         <div class="flex xl:hidden">
-            <a class="xl:hidden flex mr-6 items-center" href="./shopping_cart.php">
+            <a class="xl:hidden flex mr-6 items-center" href="./shopping-cart.php">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -85,7 +85,7 @@
                 <a href="./register.php" id="registerBtnMbl" class="bg-navy px-3 py-1.5 w-fit rounded-lg text-white">Register</a>
 
             <?php } else { ?>
-                <a href="./shopping_cart.php" id="cartBtnMbl">
+                <a href="./shopping-cart.php" id="cartBtnMbl">
                     <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.6771 23.8369C12.0689 27.3631 12.2648 29.126 13.4513 30.1881C14.6378 31.25 16.4117 31.25 19.9595 31.25H20.2214H28.0645H30.8904C33.3345 31.25 34.5564 31.25 35.5481 30.6529C36.5397 30.0558 37.1116 28.9758 38.2552 26.8158L43.3972 17.1031C44.5029 15.0146 42.9889 12.5 40.6258 12.5H20.2214H19.728C15.3828 12.5 13.2102 12.5 11.968 13.8878C10.7259 15.2756 10.9658 17.435 11.4456 21.7535L11.6771 23.8369Z" stroke="#757575" stroke-width="3" stroke-linejoin="round" />
                         <path d="M6.25 6.25H7.29167C8.67542 6.25 9.83787 7.29046 9.99069 8.66573L11.5741 22.9167" stroke="#757575" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />

@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("Edit User | Erigo Store"); ?>
+    <?php SEO("Edit User | Admin Panel"); ?>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                 <nav>
                     <ol class="flex items-end justify-end p-2 xl:p-5">
                         <li>
-                            <a class="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="../admin/dashboard.php">
                                 Dashboard /
                             </a>
                         </li>
@@ -34,42 +34,34 @@
                 $password = "";
                 $dbname = "db_erigo";
 
-                // Membuat koneksi
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Memeriksa koneksi 
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT id, pict, `name`, `address`, phone, email, password, `role` FROM users WHERE id='" . $_GET['id'] . "'";
+                $sql = "SELECT id, `name`, `address`, phone, email, password, `role` FROM users WHERE id='" . $_GET['id'] . "'";
                 $result = mysqli_query($conn, $sql);
-
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
                 }
                 ?>
                 <div class="max-w-7xl mx-auto mt-2 rounded-md bg-white px-5 pb-2.5 pt-6 shadow-default sm:px-7.5 xl:pb-1">
-                    <h3 class="text-xl font-semibold text-black">Add New User</h3>
+                    <h3 class="text-xl font-semibold text-black">Edit New User</h3>
                     <div class="container justify-center w-full mb-6 rounded-md">
-                        <form action="../../process/add/add-user.php" method="POST">
+                        <form action="../../process/edit/edit-user.php" method="POST">
                             <div class="p-6">
-                                <div class="mb-6">
-                                    <label for="pict" class="mb-3 block text-sm font-medium text-black">
-                                        Photo User
-                                    </label>
-                                    <input type="file" name="pict" id="pict" value="<?php echo $row['pict'] ?>" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
-                                </div>
                                 <div class="mb-6">
                                     <label for="name" class="mb-3 block text-sm font-medium text-black">
                                         Name
                                     </label>
+                                    <input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
                                     <input type="text" name="name" id="name" value="<?php echo $row['name'] ?>" placeholder="Enter your name" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
                                 </div>
                                 <div class="mb-6">
                                     <label for="address" class="mb-3 block text-sm font-medium text-black">
                                         Address
                                     </label>
-                                    <textarea name="address" id="address" value="<?php echo $row['address'] ?>" placeholder="Enter your address" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40"></textarea>
+                                    <input name="address" id="address" value="<?php echo $row['address'] ?>" placeholder="Enter your address" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40"></input>
                                 </div>
                                 <div class="mb-6">
                                     <label for="phone" class="mb-3 block text-sm font-medium text-black">
@@ -82,12 +74,6 @@
                                         Email
                                     </label>
                                     <input type="email" name="email" id="email" value="<?php echo $row['email'] ?>" placeholder="Enter your email" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
-                                </div>
-                                <div class="mb-6">
-                                    <label for="password" class="mb-3 block text-sm font-medium text-black">
-                                        Password
-                                    </label>
-                                    <input type="password" name="password" id="password" value="<?php echo $row['password'] ?>" placeholder="********" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
                                 </div>
                                 <div class="mb-6">
                                     <label class="mb-2.5 block text-black">Role</label>

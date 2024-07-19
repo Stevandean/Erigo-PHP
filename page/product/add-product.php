@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("Add Product | Erigo Store"); ?>
+    <?php SEO("Add Product | Admin Panel"); ?>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                 <nav>
                     <ol class="flex items-end justify-end p-2 xl:p-5">
                         <li>
-                            <a class="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="../admin/dashboard.php">
                                 Dashboard /
                             </a>
                         </li>
@@ -69,20 +69,14 @@
                                     </label>
                                     <select name="categories_id" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40">
                                         <?php
-                                        // Connect to the database
                                         $conn = new mysqli("localhost", "root", "", "db_erigo");
-
-                                        // Check connection
                                         if ($conn->connect_error) {
                                             die("Connection failed: " . $conn->connect_error);
                                         }
 
-                                        // Fetch categories
                                         $sql = "SELECT id, categories_name FROM categories";
                                         $result = $conn->query($sql);
-
                                         if ($result->num_rows > 0) {
-                                            // Output data of each row
                                             while ($row = $result->fetch_assoc()) {
                                                 echo "<option value='" . $row["id"] . "'>" . $row["categories_name"] . "</option>";
                                             }

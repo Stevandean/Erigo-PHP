@@ -1,7 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $categories_name = $_POST['categories_name'];
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $phone = $_POST['address'];
+    $email = $_POST['email'];
+    $role = $_POST['role'];
 
     $servername = "localhost";
     $username = "root";
@@ -13,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "UPDATE categories SET categories_name='$categories_name' WHERE id='$id'";
+    $sql = "UPDATE users SET `name`='$name', `address`='$address', phone='$phone', email='$email', `role`='$role' WHERE id='$id'";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Updated successfully!'); window.location.href='../../page/categories/categories.php'</script>";
+        echo "<script>alert('Updated successfully!'); window.location.href='../../page/user/user.php'</script>";
     } else {
         echo "Error updating: " . mysqli_error($conn);
     }

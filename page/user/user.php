@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("User | Erigo Store"); ?>
+    <?php SEO("User | Admin Panel"); ?>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                 <nav>
                     <ol class="flex items-end justify-end p-2 xl:p-5">
                         <li>
-                            <a class="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="../admin/dashboard.php">
                                 Dashboard /
                             </a>
                         </li>
@@ -39,18 +39,15 @@
                         $password = "";
                         $dbname = "db_erigo";
 
-                        // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
-                        // Check connection
                         if (!$conn) {
                             die("Connection failed: " . mysqli_connect_error());
                         }
 
                         $sql = "SELECT id, pict, `name`, `address`, phone, email, role FROM users";
                         $result = mysqli_query($conn, $sql);
-
                         if (mysqli_num_rows($result) > 0) {
-                            echo "<table class='w-full mb-6'>
+                            echo "<table id='data-table' class='w-full mb-6'>
                             <thead class='rounded-md bg-gray/10'>
                                 <tr>
                                     <th class='p-2 xl:p-5' width='10%'>
@@ -93,9 +90,7 @@
                             <tbody>";
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "<tr>
-                                    <td class='p-2 xl:p-5'>
-                                        <p class='text-black text-center'>" . $row["id"] . "</p>
-                                    </td>
+                                    <td class='text-center p-2 xl:p-5'></td>
                                     <td class='flex items-center justify-center gap-3 p-2 xl:p-5'>
                                         <div class='flex-shrink-0'>
                                             <img src='" . $row["pict"] . "' alt='Product Image' width='48' height='48' />
@@ -118,10 +113,10 @@
                                     </td>
                                     <td class='flex items-center justify-center p-2 xl:p-5'>
                                     <div class='text-center'>
-                                    <a href='./edit-user.php?id=" . $row['id'] . "'><button class='bg-yellow hover:bg-yellow/90 text-white font-semibold py-2 px-4 rounded-md w-20 flex-col items-center justify-center'>
+                                    <a href='./edit-user.php?id=" . $row['id'] . "'><button class='bg-warning hover:bg-warning/90 text-white font-semibold py-2 px-4 rounded-md w-20 flex-col items-center justify-center'>
                                                 Edit
                                             </button></a>
-                                    <a href='../../process/delete/delete-user.php?id=" . $row['id'] . "'><button class='bg-red hover:bg-red/90 text-white font-semibold py-2 px-4 rounded-md w-20 flex-col items-center justify-center'>
+                                    <a href='../../process/delete/delete-user.php?id=" . $row['id'] . "'><button class='bg-danger hover:bg-danger/90 text-white font-semibold py-2 px-4 rounded-md w-20 flex-col items-center justify-center'>
                                                 Delete
                                             </button></a>
                                             </div>
@@ -144,5 +139,15 @@
         </main>
     </div>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var table = document.getElementById("data-table");
+        var rows = table.getElementsByTagName("tr");
+        for (var i = 1; i < rows.length; i++) {
+            rows[i].getElementsByTagName("td")[0].textContent = i;
+        }
+    });
+</script>
 
 </html>

@@ -69,4 +69,30 @@
         font-weight: bold;
         color: #1B2E57;
     }
+
+    .card-data-stats {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+    }
+
+    .card-data-stats .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-data-stats .card-total {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .menu-item.active {
+        background-color: white;
+        color: grey;
+    }
 </style>

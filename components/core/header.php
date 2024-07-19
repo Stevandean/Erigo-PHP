@@ -20,9 +20,9 @@
         </div>
         <div class="flex items-center gap-3 2xsm:gap-7">
             <ul class="flex items-center gap-2 2xsm:gap-4">
-                <span>ainu azzaria</span>
+                <span>Ainu Azzaria</span>
                 <a class="block flex-shrink-0" href="/">
-                    <img class="rounded-full" width="32" height="32" src="../assets/img/products_1.png" alt="Logo">
+                    <img class="rounded-full" width="32" height="32" src="../../assets/user/aku.jpg" alt="Logo">
                 </a>
 
             </ul>

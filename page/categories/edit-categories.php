@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <?php SEO("Edit Categories | Erigo Store"); ?>
+    <?php SEO("Edit Categories | Admin Panel"); ?>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                 <nav>
                     <ol class="flex items-end justify-end p-2 xl:p-5">
                         <li>
-                            <a class="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="../admin/dashboard.php">
                                 Dashboard /
                             </a>
                         </li>
@@ -34,16 +34,13 @@
                 $password = "";
                 $dbname = "db_erigo";
 
-                // Membuat koneksi
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Memeriksa koneksi 
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
                 $sql = "SELECT id, categories_name FROM categories WHERE id='" . $_GET['id'] . "'";
                 $result = mysqli_query($conn, $sql);
-
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
                 }
@@ -57,6 +54,7 @@
                                     <label for="categories_name" class="mb-3 block text-sm font-medium text-black">
                                         Categories Name
                                     </label>
+                                    <input type="hidden" name="id" id="id" value="<?php echo $row['id'] ?>" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
                                     <input type="text" name="categories_name" id="categories_name" value="<?php echo $row['categories_name'] ?>" placeholder="Enter categories name" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
                                 </div>
                                 <button type="submit" class="flex w-full justify-center rounded bg-navy p-3 font-medium text-white hover:bg-navy/90">
