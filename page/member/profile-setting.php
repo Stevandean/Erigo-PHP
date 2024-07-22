@@ -12,16 +12,16 @@ require_once '../../lib/seo.php';
 require_once '../../db/connection.php';
 
 // Check if users_id is set in session
-if (!isset($_SESSION['users_id'])) {
-    header("Location: ../../not-found.php");
-    exit();
-}
+// if (!isset($_SESSION['users_id'])) {
+//     header("Location: ../../not-found.php");
+//     exit();
+// }
 
 // Fetch user data
-$users_id = $_SESSION['users_id'];
-$sql = "SELECT * FROM users WHERE users_id = ?";
+$users_id = $_SESSION['id'];
+$sql = "SELECT * FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $users_id);
+$stmt->bind_param("s", $users_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
@@ -36,13 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = md5($_POST['password']);
 
     // Update query
-    $update_sql = "UPDATE users SET name = ?, address = ?, phone = ?, email = ?, password = ? WHERE users_id = ?";
+    $update_sql = "UPDATE users SET name = ?, address = ?, phone = ?, email = ?, password = ? WHERE id = ?";
     $update_stmt = $conn->prepare($update_sql);
-    $update_stmt->bind_param("sssssi", $name, $address, $phone, $email, $password, $users_id);
+    $update_stmt->bind_param("ssssss", $name, $address, $phone, $email, $password, $users_id);
 
     if ($update_stmt->execute()) {
         // Redirect to profile setting page to refresh the data
-        header("Location: ../../profile_setting.php");
+        header("Location: ./profile-setting.php");
         exit();
     } else {
         echo "Error updating record: " . $conn->error;

@@ -80,7 +80,7 @@ $result = $stmt->get_result();
             </div>
         </section>
 
-        <?php require_once '../../components/core/footer.php'; ?>
+            
     </main>
 
     <script>

@@ -1,4 +1,19 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['users_id'])) {
+    header("Location: ../../not-found.php");
+    exit();
+}
+
+// Fetch user data
+$users_id = $_SESSION['users_id'];
+$sql = "SELECT * FROM users WHERE users_id = ?";
+$stmt = $conn->prepare($sqml);
+$stmt->bind_param("i", $users_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect value of input field
     $product_name = $_POST['product_name'];

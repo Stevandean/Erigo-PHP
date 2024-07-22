@@ -39,7 +39,7 @@
                             </span>
                         </span>
                     </a>
-                    <a href="./profile_setting.php" id="profileBtn">
+                    <a href="./profile-setting.php" id="profileBtn">
                         <img class="overflow-clip w-9 h-9 object-cover rounded-full" src="./assets/img/products_2.png" alt="">
                     </a>
                 <?php } ?>

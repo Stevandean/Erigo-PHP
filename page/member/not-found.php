@@ -25,7 +25,7 @@
             </div>
 
             <div class="mt-[20px] flex items-center justify-center">
-                <a href="../../index.php" class="px-5 py-2 bg-navy hover:bg-navy/90 transition-all ease-linear duration-300 rounded-lg text-white text-[15px] font-bold font-['Poppins']">Back To Home</a>
+                <a href="./index.php" class="px-5 py-2 bg-navy hover:bg-navy/90 transition-all ease-linear duration-300 rounded-lg text-white text-[15px] font-bold font-['Poppins']">Back To Home</a>
             </div>
         </section>
     </main>
