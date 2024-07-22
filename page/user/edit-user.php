@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
+    header("Location: ../admin/login.php");
+    exit();
+}
+?>
+
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
@@ -39,7 +48,7 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT id, `name`, `address`, phone, email, password, `role` FROM users WHERE id='" . $_GET['id'] . "'";
+                $sql = "SELECT id, pict, `name`, `address`, phone, email, password, `role` FROM users WHERE id='" . $_GET['id'] . "'";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
@@ -48,8 +57,14 @@
                 <div class="max-w-7xl mx-auto mt-2 rounded-md bg-white px-5 pb-2.5 pt-6 shadow-default sm:px-7.5 xl:pb-1">
                     <h3 class="text-xl font-semibold text-black">Edit New User</h3>
                     <div class="container justify-center w-full mb-6 rounded-md">
-                        <form action="../../process/edit/edit-user.php" method="POST">
+                        <form action="../../process/edit/edit-user.php" method="POST" enctype="multipart/form-data">
                             <div class="p-6">
+                                <div class="mb-6">
+                                    <label for="pict" class="mb-3 block text-sm font-medium text-black">
+                                        Photo User
+                                    </label>
+                                    <input type="file" accept="image/*" name="pict" id="pict" value="<?php echo $row['pict'] ?>" class="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-navy/40" />
+                                </div>
                                 <div class="mb-6">
                                     <label for="name" class="mb-3 block text-sm font-medium text-black">
                                         Name
@@ -100,8 +115,8 @@
                                     Save
                                 </button>
                             </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </section>
         </main>

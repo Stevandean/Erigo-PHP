@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
+  header("Location: ./login.php");
+  exit();
+}
+?>
+
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
@@ -10,7 +19,7 @@
 <body>
   <div class="flex font-[Poppins]">
     <?php include_once  '../../components/core/sidebar.php'; ?>
-    <main class="w-full h-screen bg-slate-100">
+    <main class="w-full min-h-screen bg-slate-100">
       <?php include_once  '../../components/core/header.php'; ?>
       <section class="max-w-7xl mx-auto mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">

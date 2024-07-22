@@ -78,9 +78,6 @@
                                 <a class="block pb-2 text-sm" href="./maintenance.php">How To Use Discount
                                     Code</a>
                             </li>
-                            <li>
-                                <a class="block pb-2 text-sm" href="./faq.php">FAQ</a>
-                            </li>
                         </ul>
                     </div>
                     <div class="w-full lg:w-5/12 px-4 ml-auto">

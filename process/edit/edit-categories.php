@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "UPDATE categories SET categories_name='$categories_name' WHERE id='$id'";
-
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Updated successfully!'); window.location.href='../../page/categories/categories.php'</script>";
     } else {

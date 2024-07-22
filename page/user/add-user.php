@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
+    header("Location: ../admin/login.php");
+    exit();
+}
+?>
+
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
+    header("Location: ../admin/login.php");
+    exit();
+}
+?>
+
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
@@ -10,7 +19,7 @@
 <body>
     <div class="flex font-[Poppins]">
         <?php include_once '../../components/core/sidebar.php'; ?>
-        <main class="w-full h-screen bg-slate-100">
+        <main class="w-full min-h-screen bg-slate-100">
             <?php include_once '../../components/core/header.php'; ?>
             <div class="max-w-7xl mx-auto mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <h2 class="text-xl font-semibold text-black">
@@ -27,7 +36,7 @@
                     </ol>
                 </nav>
             </div>
-            <section>
+            <section class="pb-10">
                 <div class="max-w-7xl mx-auto mt-2 rounded-md bg-white px-5 pb-2.5 pt-6 shadow-default sm:px-7.5 xl:pb-1">
                     <h4 class="text-xl font-semibold text-black">
                         All Product

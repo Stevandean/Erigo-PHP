@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION['id'])) {
         $users_id = $_SESSION['id'];
     } else {
-        die("User not logged in");
+        echo "<script>alert('Member not logged in'); window.location.href='../../page/member/login.php'</script>";
     }
 
     $product_id = $_POST['id'];
