@@ -28,23 +28,19 @@ $username = "root";
 $password = "";
 $dbname = "db_erigo";
 
-// Membuat koneksi
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Memeriksa koneksi 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Cek apakah parameter 'id' ada dalam $_GET
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $id = mysqli_real_escape_string($conn, $_GET['id']); // Mencegah SQL Injection
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
     $sql = "SELECT p.id, p.product_name, p.price, p.desc, o.size, p.stock, p.pict, p.categories_id, o.quantity 
             FROM product p 
             LEFT JOIN `order` o 
             ON p.id = o.product_id 
             WHERE p.id = '$id'";
     $result = mysqli_query($conn, $sql);
-
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
     } else {
@@ -71,11 +67,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <div class="flex items-center space-x-2">
                             <span class="text-lg">3.9</span>
                             <div class="flex">
-                                <!-- Stars Rating -->
                                 <svg width="16" height="16" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19.5734 1.39057C20.0224 0.00860763 21.9776 0.00861025 22.4266 1.39058L26.2761 13.2381C26.4769 13.8561 27.0528 14.2746 27.7027 14.2746H40.1599C41.613 14.2746 42.2171 16.134 41.0416 16.9881L30.9635 24.3103C30.4377 24.6922 30.2177 25.3693 30.4186 25.9873L34.2681 37.8349C34.7171 39.2168 33.1354 40.366 31.9598 39.5119L21.8817 32.1897C21.3559 31.8078 20.6441 31.8078 20.1183 32.1897L10.0402 39.5119C8.86464 40.366 7.28292 39.2168 7.73195 37.8349L11.5814 25.9873C11.7823 25.3693 11.5623 24.6922 11.0365 24.3103L0.958431 16.9881C-0.217139 16.134 0.387027 14.2746 1.84011 14.2746H14.2973C14.9472 14.2746 15.5231 13.8561 15.7239 13.2381L19.5734 1.39057Z" fill="#FACC15" />
                                 </svg>
-                                <!-- Repeat for additional stars -->
                             </div>
                         </div>
                     </div>
@@ -120,6 +114,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         </section>
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
+
     <script>
         const sizeButtons = document.querySelectorAll('.size-button');
         const selectedSizeInput = document.getElementById('selectedSize');
@@ -146,6 +141,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             }
         }
     </script>
+
 </body>
 
 </html>

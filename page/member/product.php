@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <?php require_once '../../lib/seo.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,14 +11,15 @@ session_start();
     <main class="w-full h-screen font-[Poppins] ">
         <?php require_once '../../components/core/navbar.php'; ?>
         <section class="min-h-full p-10">
+            <h1 class="font-['Poppins'] text-black text-2xl font-extrabold place-items-end p-[5px] flex items-center mb-7 xl:mb-0 xl:ml-[17px] uppercase">Featured Products</h1>
             <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
             $dbname = "db_erigo";
             // Create connection
+
             $conn = mysqli_connect($servername, $username, $password, $dbname);
-            // Check connection
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
@@ -61,10 +60,55 @@ session_start();
             mysqli_close($conn);
             ?>
             <button class="bg-navy px-3 py-1.5 rounded-lg text-white text-lg font-semibold mt-10 hover:scale-[1.2] transition-all ease-in-out duration-300">Show More</button>
-
         </section>
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#categoryDropdown').change(function() {
+                var categoryId = $(this).val();
+                $.ajax({
+                    url: '../../lib/filterProduct.php',
+                    type: 'GET',
+                    data: {
+                        category_id: categoryId
+                    },
+                    success: function(data) {
+                        $('#productContainer').html(data);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var priceElements = document.querySelectorAll('.price');
+            priceElements.forEach(function(priceElement) {
+                var price = priceElement.textContent;
+                priceElement.textContent = formatRupiah(price, 'Rp. ');
+            });
+        });
+    </script>
 </body>
 
 </html>

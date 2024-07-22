@@ -20,7 +20,6 @@ require_once '../../lib/seo.php';
 <body>
     <main class="w-full min-h-screen font-[Poppins]">
         <?php require_once '../../components/core/navbar.php'; ?>
-
         <section class="min-h-full flex flex-col p-10">
             <h1 class="text-2xl font-extrabold uppercase mb-10">Payment Method</h1>
             <div class="space-y-10 xl:px-10">
@@ -131,7 +130,6 @@ require_once '../../lib/seo.php';
                 </div>
             </div>
         </section>
-
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
 </body>

@@ -4,14 +4,12 @@
 <html lang="en">
 
 <head>
-    <!-- Fill the string when you want change title of page -->
     <?php SEO("Maintenance | Erigo Store"); ?>
 </head>
 
 <body>
-    <main class="w-full min-h-screen flex items-center justify-center font-[Poppins]">
-
-        <section class="p-[50px] w-5/6 xl:w-ful">
+    <main class="w-full min-h-screen flex flex-col items-center justify-center mx-auto font-[Poppins]">
+        <section>
             <h1 class="font-['Poppins'] text-black text-4xl font-extrabold flex items-center justify-center">ERIGO</h1>
 
             <div class="mt-[10px] flex items-center justify-center">
@@ -25,6 +23,48 @@
             <div class="mt-[10px] flex items-center justify-center">
                 <h2 class="text-black text-sm font-medium font-['Poppins']">please check soon.</h2>
             </div>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script src="main.js" defer></script>
+            <link rel="shortcut icon" href="//erigostore.co.id/cdn/shop/files/New_Logo_Erigo_81faf464-002f-434b-bae0-632202133822_32x32.png?v=1692002740" type="image/png">
+            <link rel="stylesheet" href="style.css">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+            </style>
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            <script>
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                gray: '#757575',
+                                navy: '#1B2E57',
+                                red: '#E95144',
+                                yellow: '#FFBB49',
+                                grayRating: '#D9D9D9',
+                                yellowRating: '#FACC15',
+                            }
+                        }
+                    }
+                }
+            </script>
+            <title>maintenance</title>
+            </head>
+
+            <body>
+                <div class="w-fulL min-h-screen">
+                    <div class=" flex flex-col justify-center items-center min-h-screen">
+                        <div class="mt-[10px]">
+                            <h2 class="text-black text-xl font-bold font-['Poppins']">We'll back.</h2>
+                        </div>
+                        <div class="mt-[10px]">
+                            <h2 class="text-black text-sm font-medium font-['Poppins']">We're busy updating this page for you</h2>
+                        </div>
+                        <div class="mt-[10px]">
+                            <h2 class="text-black text-sm font-medium font-['Poppins']">please check soon.</h2>
+                        </div>
                         <div id="countdown" class="countdown">
                             <ul class="flex justify-center space-x-3 pt-6">
                                 <li class="flex flex-col justify-center items-center font-medium border border-black rounded-md p-3 text-sm w-16">
@@ -48,17 +88,12 @@
                             <a href="https://www.youtube.com/c/ErigoOfficial/videos" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a>
                         </div>
         </section>
-
     </main>
 </body>
-<div class="social_links flex justify-center space-x-3 pt-6">
-    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
 </div>
+</div>
+</body>
 
-</div>
-</div>
 <script>
     var daysEL = document.getElementById('days');
     var hoursEL = document.getElementById('hours');
@@ -67,7 +102,7 @@
 
     function maintenance() {
         const currentDate = new Date(); // Tanggal saat ini
-        const targetDate = new Date('12/30/2024'); // Tanggal target
+        const targetDate = new Date('06/11/2024'); // Tanggal target
         const difference = targetDate.getTime() - currentDate.getTime(); // Selisih waktu dalam milidetik
 
         // Konversi selisih waktu menjadi hari, jam, menit, dan detik
@@ -76,7 +111,6 @@
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // Menampilkan jumlah hari, jam, menit, dan detik yang tersisa
         daysEL.innerText = formatNumber(days);
         hoursEL.innerText = formatNumber(hours);
         minutesEL.innerText = formatNumber(minutes);

@@ -7,10 +7,7 @@ $username = "root";
 $password = "";
 $dbname = "db_erigo";
 
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -20,7 +17,6 @@ if (!isset($_SESSION['status_login'])) {
 }
 
 $user_id = $_SESSION['status_login'];
-
 $sql = "SELECT o.id, u.id AS users_id, p.id AS product_id, p.product_name, p.price, o.quantity
         FROM `order` o
         JOIN users u ON o.users_id = u.id
@@ -45,7 +41,6 @@ $result = $stmt->get_result();
 <body>
     <main>
         <?php require_once '../../components/core/navbar.php'; ?>
-
         <section class="min-h-full p-10">
             <h1 class="text-2xl font-extrabold uppercase mb-10">shopping cart</h1>
             <?php
@@ -74,23 +69,17 @@ $result = $stmt->get_result();
             }
             ?>
             <div class="flex justify-end mt-10">
-                <a href="../../payment.html"
-                    class="bg-navy text-white px-5 py-2 rounded-lg font-semibold transition-all ease-in-out duration-300 hover:scale-[1.2]">Payment
+                <a href="../../payment.html" class="bg-navy text-white px-5 py-2 rounded-lg font-semibold transition-all ease-in-out duration-300 hover:scale-[1.2]">Payment
                     Process</a>
             </div>
         </section>
-
-            
+        <?php require_once '../../components/core/footer.php'; ?>
     </main>
 
     <script>
-        function increment(orderId) {
-            // Function to increment quantity
-        }
+        function increment(orderId) {}
 
-        function decrement(orderId) {
-            // Function to decrement quantity
-        }
+        function decrement(orderId) {}
 
         function deleteItem(orderId) {
             if (confirm("Are you sure you want to delete this item?")) {

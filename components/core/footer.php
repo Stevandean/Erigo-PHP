@@ -78,9 +78,6 @@
                                 <a class="block pb-2 text-sm" href="./maintenance.php">How To Use Discount
                                     Code</a>
                             </li>
-                            <li>
-                                <a class="block pb-2 text-sm" href="./faq.php">FAQ</a>
-                            </li>
                         </ul>
                     </div>
                     <div class="w-full lg:w-5/12 px-4 ml-auto">
@@ -91,7 +88,7 @@
                                     <svg width="30" height="30" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M42.1875 28.1859L25 14.8453L7.8125 28.1859V22.75L25 9.40625L42.1875 22.7469V28.1859ZM37.8906 27.7016V40.5937H29.2969V32H20.7031V40.5937H12.1094V27.7031L25 18.0359L37.8906 27.7016Z" fill="white" />
                                     </svg>
-                                    <span>Jl. Niaga No.3, Ciptomulyo, Kec. Sukun, <br>Kota Malang, Jawa Timur
+                                    <span> Jl. Niaga No.3, Ciptomulyo, Kec. Sukun, <br>Kota Malang, Jawa Timur
                                         65148</span>
                                 </div>
                             </li>
