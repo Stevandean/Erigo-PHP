@@ -1,26 +1,11 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['users_id'])) {
-    header("Location: ../../not-found.php");
-    exit();
-}
-
-// Fetch user data
-$users_id = $_SESSION['users_id'];
-$sql = "SELECT * FROM users WHERE users_id = ?";
-$stmt = $conn->prepare($sqml);
-$stmt->bind_param("i", $users_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $product_name = $_POST['product_name'];
-    $price = $_POST['price'];
-    $desc = $_POST['desc'];
-    $stock = $_POST['stock'];
-    $categories_id = $_POST['categories_id'];
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $role = $_POST['role'];
 
     $servername = "localhost";
     $username = "root";
@@ -33,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $pict = $_FILES['pict']['name'];
-    $target_dir = "../../assets/product/";
+    $target_dir = "../../assets/user/";
     $target_file = $target_dir . basename($pict);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -77,11 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    $sql = "UPDATE product SET product_name='$product_name', price='$price', `desc`='$desc', stock='$stock', pict='$target_file', categories_id='$categories_id' WHERE id='$id'";
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Updated successfully!'); window.location.href='../../page/product/product.php'</script>";
-    } else {
-        echo "Error updating: " . mysqli_error($conn);
+    if ($uploadOk == 1) {
+        $sql = "UPDATE users SET pict='$target_file', `name`='$name', `address`='$address', phone='$phone', email='$email', `role`='$role' WHERE id='$id'";
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Updated successfully!'); window.location.href='../../page/user/user.php'</script>";
+        } else {
+            echo "Error updating: " . mysqli_error($conn);
+        }
     }
     mysqli_close($conn);
 }

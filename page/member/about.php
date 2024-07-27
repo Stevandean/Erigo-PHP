@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
@@ -50,7 +48,6 @@ session_start();
                 </div>
             </div>
         </section>
-
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
 </body>

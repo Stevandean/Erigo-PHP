@@ -4,7 +4,6 @@
 <html lang="en">
 
 <head>
-    <!-- Fill the string when you want change title of page -->
     <?php SEO(""); ?>
 </head>
 

@@ -13,6 +13,10 @@
                     yellow: '#FFBB49',
                     grayRating: '#D9D9D9',
                     yellowRating: '#FACC15',
+                    info: '#0D6eFD',
+                    success: '#198754',
+                    danger: '#DC3545',
+                    warning: '#FFC107',
                 }
             }
         }

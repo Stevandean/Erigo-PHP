@@ -1,3 +1,20 @@
+<?php
+require_once "../../db/connection.php";
+
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+    $id = $_SESSION['id'];
+    $email = $_SESSION['email'];
+
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email . "' AND id = '" . $id . "'");
+
+    if (mysqli_num_rows($sql) > 0) {
+        $dt = mysqli_fetch_array($sql);
+    }
+} else {
+    echo "Session variables not set.";
+}
+?>
+
 <header class="sticky top-0 z-999 w-full bg-white shadow-md">
     <div class="flex flex-grow items-center justify-between lg:justify-end px-4 py-4 shadow-2 md:px-6 2xl:px-11">
         <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
@@ -20,11 +37,12 @@
         </div>
         <div class="flex items-center gap-3 2xsm:gap-7">
             <ul class="flex items-center gap-2 2xsm:gap-4">
-                <span>ainu azzaria</span>
-                <a class="block flex-shrink-0" href="/">
-                    <img class="rounded-full" width="32" height="32" src="../assets/img/products_1.png" alt="Logo">
-                </a>
-
+                <?php if (isset($dt)) : ?>
+                    <span><?= htmlspecialchars($dt['name']) ?></span>
+                    <img class="rounded-full" width="32" height="32" src="<?= htmlspecialchars($dt['pict']) ?>" alt="User Photo">
+                <?php else : ?>
+                    <span>User not found</span>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

@@ -1,6 +1,4 @@
-<?php
-session_start()
-?>
+<?php session_start(); ?>
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>

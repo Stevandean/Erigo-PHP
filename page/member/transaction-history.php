@@ -2,10 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
-    header("Location: login.php");
+    header("Location: ./login.php");
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,77 +76,56 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
                     </tbody>
                 </table>
             </div>
-<<<<<<< HEAD
-        </section>
-
-        <?php require_once './components/core/footer.php'; ?>
-    </main>
+            </section>
+            <?php require_once './components/core/footer.php'; ?>
+            </main>
 </body>
 
 </html>
-=======
-        </div>
-        <?php require_once '../../components/core/footer.php'; ?>
-    </div>
+</div>
+<?php require_once '../../components/core/footer.php'; ?>
+</div>
 
-    <!-- javascript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Memeriksa keberadaan variabel userAcc di local storage
-            var userAcc = localStorage.getItem('userAcc');
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var userAcc = localStorage.getItem('userAcc');
 
-            // Memeriksa apakah userAcc ada
-            if (userAcc) {
-                // untuk dekstop mode
-                // Jika userAcc ada, tampilkan tombol shopping cart dan profile
-                document.getElementById('cartBtn').style.display = 'inline';
-                document.getElementById('profileBtn').style.display = 'inline';
+        if (userAcc) {
+            document.getElementById('cartBtn').style.display = 'inline';
+            document.getElementById('profileBtn').style.display = 'inline';
 
-                // Sembunyikan tombol login dan register
-                document.getElementById('loginBtn').style.display = 'none';
-                document.getElementById('registerBtn').style.display = 'none';
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('registerBtn').style.display = 'none';
 
-                // untuk mobile mode
-                // Jika userAcc ada, tampilkan tombol shopping cart dan profile
-                document.getElementById('cartBtnMbl').style.display = 'inline';
-                document.getElementById('profileBtnMbl').style.display = 'inline';
+            document.getElementById('cartBtnMbl').style.display = 'inline';
+            document.getElementById('profileBtnMbl').style.display = 'inline';
 
-                // Sembunyikan tombol login dan register
-                document.getElementById('loginBtnMbl').style.display = 'none';
-                document.getElementById('registerBtnMbl').style.display = 'none';
-            } else {
-                // untuk dekstop mode
-                // Jika userAcc tidak ada, tampilkan tombol login dan register
-                document.getElementById('loginBtn').style.display = 'inline';
-                document.getElementById('registerBtn').style.display = 'inline';
+            document.getElementById('loginBtnMbl').style.display = 'none';
+            document.getElementById('registerBtnMbl').style.display = 'none';
+        } else {
+            document.getElementById('loginBtn').style.display = 'inline';
+            document.getElementById('registerBtn').style.display = 'inline';
 
-                // Sembunyikan tombol shopping cart dan profile
-                document.getElementById('cartBtn').style.display = 'none';
-                document.getElementById('profileBtn').style.display = 'none';
+            document.getElementById('cartBtn').style.display = 'none';
+            document.getElementById('profileBtn').style.display = 'none';
 
-                // untuk mobile mode
-                // Jika userAcc tidak ada, tampilkan tombol login dan register
-                document.getElementById('loginBtnMbl').style.display = 'inline';
-                document.getElementById('registerBtnMbl').style.display = 'inline';
+            document.getElementById('loginBtnMbl').style.display = 'inline';
+            document.getElementById('registerBtnMbl').style.display = 'inline';
 
-                // Sembunyikan tombol shopping cart dan profile
-                document.getElementById('cartBtnMbl').style.display = 'none';
-                document.getElementById('profileBtn').style.display = 'none';
-            }
-        });
-        const menuBtn = document.getElementById('menuBtn');
-        const responsiveMenu = document.getElementById('responsiveMenu');
+            document.getElementById('cartBtnMbl').style.display = 'none';
+            document.getElementById('profileBtn').style.display = 'none';
+        }
+    });
+    const menuBtn = document.getElementById('menuBtn');
+    const responsiveMenu = document.getElementById('responsiveMenu');
 
-        menuBtn.addEventListener('click', () => {
-            responsiveMenu.classList.toggle('hidden');
-        });
-    </script>
+    menuBtn.addEventListener('click', () => {
+        responsiveMenu.classList.toggle('hidden');
+    });
+</script>
 
 </body>
 
-<<<<<<< HEAD:transaction_history.php
 </html>
->>>>>>> c41a4cd00217de34e9a2dcb5bd31e4ef2f8e6e17
-=======
+
 </html>
->>>>>>> eda78ddfdac4d469fb07868171ec7d4d49782494:page/member/transaction_history.php

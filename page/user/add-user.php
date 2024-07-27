@@ -1,10 +1,19 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
+    header("Location: ../admin/login.php");
+    exit();
+}
+?>
+
 <?php require_once '../../lib/seo.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php SEO("Add User | Erigo Store"); ?>
+    <?php SEO("Add User | Admin Panel"); ?>
 </head>
 
 <body>
@@ -19,7 +28,7 @@
                 <nav>
                     <ol class="flex items-end justify-end p-2 xl:p-5">
                         <li>
-                            <a class="font-semibold" href="./dashboard.php">
+                            <a class="font-semibold" href="../admin/dashboard.php">
                                 Dashboard /
                             </a>
                         </li>

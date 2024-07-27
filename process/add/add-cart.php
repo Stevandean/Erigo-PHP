@@ -1,15 +1,13 @@
 <?php
-session_start(); // Mulai sesi
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Pastikan user sudah login dan ada user ID di sesi
     if (isset($_SESSION['id'])) {
         $users_id = $_SESSION['id'];
     } else {
-        die("User not logged in");
+        echo "<script>alert('Member not logged in'); window.location.href='../../page/member/login.php'</script>";
     }
 
-    // Collect value of input field
     $product_id = $_POST['id'];
     $quantity = $_POST['quantity'];
     $size = $_POST['size'];
@@ -44,5 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql->close();
     $conn->close();
+    mysqli_close($conn);
+
 }
-?>
