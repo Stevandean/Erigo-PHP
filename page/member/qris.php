@@ -14,6 +14,41 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
 } else {
     $session_expired = false;
 }
+
+if ($_SESSION['status_login'] != true) {
+    header("Location: ../../not-found.php");
+    exit();
+}
+
+$conn = mysqli_connect('localhost', 'root', '', 'db_erigo');
+
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+$user_id = $_SESSION['id'];
+
+// Fetch order details
+$order_query = $conn->prepare("
+    SELECT p.product_name, o.size, o.quantity, p.price 
+    FROM `order` o
+    JOIN `product` p ON o.product_id = p.id
+    WHERE o.users_id = ?
+");
+$order_query->bind_param("i", $user_id);
+$order_query->execute();
+$order_query->bind_result($product_name, $product_size, $quantity, $price);
+$orders = [];
+while ($order_query->fetch()) {
+    $orders[] = [
+        'product_name' => $product_name,
+        'product_size' => $product_size,
+        'quantity' => $quantity,
+        'price' => $price
+    ];
+}
+$order_query->close();
 ?>
 
 <!DOCTYPE html>
@@ -33,15 +68,12 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
                         <h1 class="text-[15px] font-medium ml-4">Product</h1>
                     </div>
                     <div class="col-span-2">
-                        <div class="flex flex-col items-start">
-                            <h1 class="text-black text-base font-semibold">Erigo T-Shirt Basic Olive White Unisex</h1>
-                            <p class="text-gray text-sm font-normal">Size : XL</p>
-                        </div>
-
-                        <div class="flex flex-col items-start mt-2">
-                            <h1 class="text-black text-base font-semibold">Erigo Chino Pants Sirius Black</h1>
-                            <p class="text-gray text-sm font-normal">Size : 32</p>
-                        </div>
+                        <?php foreach ($orders as $order): ?>
+                            <div class="flex flex-col items-start">
+                                <h1 class="text-black text-base font-semibold"><?php echo htmlspecialchars($order['product_name']); ?></h1>
+                                <p class="text-gray text-sm font-normal">Size : <?php echo htmlspecialchars($order['product_size']); ?></p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="col-span-2">
                         <div class="flex items-center justify-evenly">
@@ -51,7 +83,12 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
                             </div>
                             <div class="flex flex-col items-start">
                                 <img src="../../assets/img/qris.jpg" alt="payment_method" class="w-auto h-10">
-                                <p class="text-black text-base font-semibold">Rp.750.000</p>
+                                <p class="text-black text-base font-semibold">
+                                    Rp. <?php 
+                                    $total = array_sum(array_column($orders, 'price'));
+                                    echo htmlspecialchars(number_format($total, 0, ',', '.')); 
+                                    ?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -59,8 +96,7 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
             </div>
             <div class="container flex flex-col items-center justify-center mx-auto my-[50px]">
                 <div class="flex items-center justify-center gap-14">
-                    <h3 class="text-xl font-medium text-white" id="selesaikan">Silakan selesaikan pembayaran Anda dalam
-                    </h3>
+                    <h3 class="text-xl font-medium text-white" id="selesaikan">Silakan selesaikan pembayaran Anda dalam</h3>
                     <span class="text-xl font-medium text-white" id="countdown">0:15:00</span>
                 </div>
                 <div class="mt-[30px]" id="instructions">
