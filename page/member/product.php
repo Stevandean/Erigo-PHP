@@ -9,7 +9,7 @@
     <main class="w-full h-screen font-[Poppins] ">
         <?php require_once '../../components/core/navbar.php'; ?>
         <section class="min-h-full p-10">
-            <h1 class="font-['Poppins'] text-black text-2xl font-extrabold place-items-end p-[5px] flex items-center mb-7 xl:mb-0 xl:ml-[17px] uppercase">Featured Products</h1>
+            <h1 class="text-2xl font-extrabold p-10 uppercase">Featured Products</h1>
             <?php
             $servername = "localhost";
             $username = "root";
@@ -27,7 +27,6 @@
 
             if (mysqli_num_rows($result) > 0) {
             ?>
-                <h1 class='text-2xl font-bold text-black uppercase cursor-default mb-10'>featured products</h1>
                 <div class='grid grid-cols-1 xl:grid-cols-4 w-full gap-x-8 gap-y-10 px-10'>
                     <?php
                     while ($row = mysqli_fetch_assoc($result)) {
