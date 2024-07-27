@@ -2,25 +2,20 @@
 session_start();
 ?>
 <?php require_once '../../lib/seo.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php SEO("Product | Erigo Store"); ?>
 </head>
-
 <body>
     <main class="w-full h-screen font-[Poppins] ">
         <?php require_once '../../components/core/navbar.php'; ?>
-
         <section class="min-h-full p-10">
             <?php
             $servername = "localhost";
             $username = "root";
             $password = "";
             $dbname = "db_erigo";
-
             // Create connection
             $conn = mysqli_connect($servername, $username, $password, $dbname);
             // Check connection
@@ -31,7 +26,11 @@ session_start();
             $sql = "SELECT p.id, p.product_name, p.price, p.desc, p.stock, p.pict, c.categories_name FROM product p JOIN categories c ON p.categories_id = c.id";
             $result = mysqli_query($conn, $sql);
 
-                if (mysqli_num_rows($result) > 0) {
+            if (mysqli_num_rows($result) > 0) {
+            ?>
+                <h1 class='text-2xl font-bold text-black uppercase cursor-default mb-10'>featured products</h1>
+                <div class='grid grid-cols-1 xl:grid-cols-4 w-full gap-x-8 gap-y-10 px-10'>
+                    <?php
                     while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <div class='flex flex-col relative justify-center items-center custom-shadow rounded-lg py-5'>
@@ -46,27 +45,24 @@ session_start();
                                 </a>
                             </h1>
                             <h1 class='font-bold text-xl'>
-                                <p class='price'><?php echo $row["price"]; ?></p>
+                                <p>Rp. <?php echo $row["price"]; ?></p>
                             </h1>
                         </div>
-
-                <?php
+                    <?php
                     }
-                } else {
-                    echo "<p>0 results</p>";
-                }
-
-                mysqli_close($conn);
-                ?>
-            </div>
-
+                    ?>
+                </div>
+            <?php
+            } else {
+                echo "0 results";
+            }
+            mysqli_close($conn);
+            ?>
             <button class="bg-navy px-3 py-1.5 rounded-lg text-white text-lg font-semibold mt-10 hover:scale-[1.2] transition-all ease-in-out duration-300">Show More</button>
-
+                    
         </section>
-
         <?php require_once '../../components/core/footer.php'; ?>
     </main>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- script for filtering product -->

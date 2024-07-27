@@ -4,7 +4,7 @@ session_start(); // Mulai sesi
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Pastikan user sudah login dan ada user ID di sesi
     if (isset($_SESSION['id'])) {
-        $users_id = $_SESSION['id'];    
+        $users_id = $_SESSION['id'];
     } else {
         die("User not logged in");
     }
@@ -14,27 +14,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quantity = $_POST['quantity'];
     $size = $_POST['size'];
 
+    // Log untuk memeriksa data yang diterima
+    error_log("Received data: product_id=$product_id, users_id=$users_id, quantity=$quantity, size=$size");
+
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "db_erigo";
 
     // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
     // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    // SQL to create a data
-    $sql = "INSERT INTO `order` (product_id, users_id, quantity, `size`) VALUES ('$product_id', '$users_id', '$quantity', '$size')";
 
-    if (mysqli_query($conn, $sql)) {
+    $sql = $conn->prepare("INSERT INTO `order` (product_id, users_id, quantity, `size`) VALUES (?, ?, ?, ?)");
+    $sql->bind_param("iiis", $product_id, $users_id, $quantity, $size);
+
+    if ($sql->execute()) {
         echo "<script>alert('Created successfully!'); window.location.href='../../page/member/shopping-cart.php'</script>";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        // Tangkap dan tampilkan error secara lebih rinci
+        error_log("SQL Error: " . $sql->error);
+        echo "Error: " . $sql->error;
     }
 
-    mysqli_close($conn);
+    $sql->close();
+    $conn->close();
 }
 ?>
