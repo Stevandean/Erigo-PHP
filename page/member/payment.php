@@ -17,7 +17,6 @@ if (mysqli_connect_errno()) {
 
 $user_id = $_SESSION['id']; 
 
-// Fetch user details
 $query = $conn->prepare("SELECT name, phone, email, address FROM users WHERE id = ?");
 $query->bind_param("i", $user_id);
 $query->execute();
@@ -25,7 +24,6 @@ $query->bind_result($name, $phone, $email, $address);
 $query->fetch();
 $query->close();
 
-// Fetch order details
 $order_query = $conn->prepare("
     SELECT p.product_name, o.size, o.quantity, p.price 
     FROM `order` o
