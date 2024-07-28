@@ -61,8 +61,8 @@ $result = $stmt->get_result();
     <div class="w-full h-screen font-[Poppins]">
         <?php require_once '../../components/core/navbar.php'; ?>
 
-        <div class="min-h-full p-10">
-            <h1 class="text-black text-2xl font-extrabold place-items-end p-[5px] ml-[17px] uppercase">Transaction
+        <div class="h-full p-20">
+            <h1 class="text-2xl font-extrabold uppercase mb-10">Transaction
                 History</h1>
             <div class="flex justify-center items-center p-[20px]">
                 <table class="shadow-md sm:rounded-lg table-auto bg-white w-3/4 flex-col text-xs overflow-scroll">
