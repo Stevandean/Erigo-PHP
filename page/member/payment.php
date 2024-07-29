@@ -17,7 +17,6 @@ if (mysqli_connect_errno()) {
 
 $user_id = $_SESSION['id']; 
 
-// Fetch user details
 $query = $conn->prepare("SELECT name, phone, email, address FROM users WHERE id = ?");
 $query->bind_param("i", $user_id);
 $query->execute();
@@ -25,7 +24,6 @@ $query->bind_result($name, $phone, $email, $address);
 $query->fetch();
 $query->close();
 
-// Fetch order details
 $order_query = $conn->prepare("
     SELECT p.product_name, o.size, o.quantity, p.price 
     FROM `order` o
@@ -57,7 +55,7 @@ $order_query->close();
 <body>
     <main class="w-full min-h-screen font-[Poppins]">
         <?php require_once '../../components/core/navbar.php'; ?>
-        <section class="min-h-full flex flex-col p-10">
+        <section class="min-h-full flex flex-col p-20">
             <h1 class="text-2xl font-extrabold uppercase mb-10">Payment Method</h1>
             <div class="space-y-10 xl:px-10">
                 <div class="grid grid-cols-1 xl:grid-cols-3 gap-x-28 space-y-7 xl:space-y-4">
@@ -99,7 +97,7 @@ $order_query->close();
                     </div>
                 </div>
             </div>
-            <div class="space-y-3">
+            <div class="space-y-3 py-10">
                 <span class="text-xl font-semibold">Payment</span>
                 <div class="flex flex-col bg-[#F7F9FC] rounded-xl py-10 px-20">
                     <div class="flex space-x-10">
@@ -135,11 +133,11 @@ $order_query->close();
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col space-y-2">
                 <span class="text-xl font-semibold">Select Method</span>
                 <div class="w-36 text-lg font-medium flex justify-between">
                     <span>QRIS</span>
-                    <a href="../../qris.php"><span>></span></a>
+                    <a href="./qris.php"><span>></span></a>
                 </div>
                 <div class="w-36 text-lg font-medium flex justify-between">
                     <span>E-wallet</span>
