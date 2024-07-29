@@ -101,10 +101,11 @@
     var secondsEL = document.getElementById('seconds');
 
     function maintenance() {
-        const currentDate = new Date();
-        const targetDate = new Date('12/30/2024');
-        const difference = targetDate.getTime() - currentDate.getTime();
+        const currentDate = new Date(); // Tanggal saat ini
+        const targetDate = new Date('06/11/2024'); // Tanggal target
+        const difference = targetDate.getTime() - currentDate.getTime(); // Selisih waktu dalam milidetik
 
+        // Konversi selisih waktu menjadi hari, jam, menit, dan detik
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));

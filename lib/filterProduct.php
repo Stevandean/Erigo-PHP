@@ -14,7 +14,7 @@ if (!$conn) {
 
 $categoryId = isset($_GET['category_id']) ? $_GET['category_id'] : '';
 
-$sql = "SELECT p.id, p.product_name, p.price, p.desc, p.size, p.stock, p.pict, c.categories_name 
+$sql = "SELECT p.id, p.product_name, p.price, p.desc, p.stock, p.pict, c.categories_name 
         FROM product p 
         JOIN categories c ON p.categories_id = c.id";
 
@@ -35,9 +35,10 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "
         <div class='flex flex-col relative justify-center items-center custom-shadow rounded-lg py-5 px-5'>
-            <div class='absolute top-0 left-0 rounded-tl-xl px-3 py-0.5 text-white'>
-            </div>
-            <img class='w-3/4 rounded-lg mb-5' src='{$row["pict"]}' alt=''>
+            <div class='absolute top-0 left-0 rounded-tl-xl px-3 py-0.5 text-white'></div>
+            <a class='flex items-center justify-center' href='detail-product.php?id={$row["id"]}'>
+                <img class='w-3/4 rounded-lg mb-5' src='{$row["pict"]}' alt=''>
+            </a>
             <h1 class='font-semibold text-xl mb-10'>
                 <p>{$row["product_name"]}</p>
             </h1>

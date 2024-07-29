@@ -19,7 +19,7 @@ if (!isset($_SESSION['users_id'])) {
 $users_id = $_SESSION['users_id'];
 $sql = "SELECT * FROM users WHERE users_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $users_id);
+$stmt->bind_param("s", $users_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();

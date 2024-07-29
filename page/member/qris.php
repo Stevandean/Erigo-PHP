@@ -14,6 +14,61 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
 } else {
     $session_expired = false;
 }
+
+if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] != true) {
+    header("Location: ../../not-found.php");
+    exit();
+}
+
+$conn = mysqli_connect('localhost', 'root', '', 'db_erigo');
+
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+$user_id = $_SESSION['id'];
+
+// Initialize orders array
+$orders = [];
+
+// Fetch order details
+$order_query = $conn->prepare("
+    SELECT p.product_name, o.size, o.quantity, p.price 
+    FROM `order` o
+    JOIN `product` p ON o.product_id = p.id
+    WHERE o.users_id = ?
+");
+$order_query->bind_param("i", $user_id);
+$order_query->execute();
+$order_query->bind_result($product_name, $product_size, $quantity, $price);
+while ($order_query->fetch()) {
+    $orders[] = [
+        'product_name' => $product_name,
+        'product_size' => $product_size,
+        'quantity' => $quantity,
+        'price' => $price
+    ];
+}
+$order_query->close();
+
+// Handle simulate payment success
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['simulate_payment'])) {
+    // Calculate total
+    $total = array_sum(array_column($orders, 'price'));
+
+    // Insert transaction
+    $receipt_number = uniqid();  // Generate a unique receipt number
+    $payment_method = 'QRIS';  // Assuming payment method is QRIS
+    $stmt = $conn->prepare("INSERT INTO transaction (users_id, receipt_number, total, payment_method, created_at) VALUES (?, ?, ?, ?, NOW())");
+    $stmt->bind_param("isds", $user_id, $receipt_number, $total, $payment_method);
+    $stmt->execute();
+    $stmt->close();
+
+    // Redirect to transaction history page
+    header("Location: ./transaction-history.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,22 +81,24 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
 <body class="min-h-screen bg-navy flex flex-col justify-center items-center">
     <main class="w-full min-h-screen font-[Poppins]">
         <section class="min-h-full flex flex-col p-10">
-            <div class="relative bg-white rounded-xl px-5 py-6 xl:w-full max-w-screen-lg w-full mt-10 mx-auto" style="align-self: flex-start;" id="yourpurchase">
+            <div class="relative bg-white rounded-xl px-5 py-6 xl:w-full max-w-screen-lg w-full mt-10 mx-auto"
+                style="align-self: flex-start;" id="yourpurchase">
                 <h1 class="text-[17px] font-bold ml-4 uppercase">Your Purchase</h1>
                 <div class="grid grid-cols-5" id="productSection">
                     <div class="col-span-1">
                         <h1 class="text-[15px] font-medium ml-4">Product</h1>
                     </div>
                     <div class="col-span-2">
-                        <div class="flex flex-col items-start">
-                            <h1 class="text-black text-base font-semibold">Erigo T-Shirt Basic Olive White Unisex</h1>
-                            <p class="text-gray text-sm font-normal">Size : XL</p>
-                        </div>
-
-                        <div class="flex flex-col items-start mt-2">
-                            <h1 class="text-black text-base font-semibold">Erigo Chino Pants Sirius Black</h1>
-                            <p class="text-gray text-sm font-normal">Size : 32</p>
-                        </div>
+                        <?php foreach ($orders as $order): ?>
+                            <div class="flex flex-col items-start">
+                                <h1 class="text-black text-base font-semibold">
+                                    <?php echo htmlspecialchars($order['product_name']); ?>
+                                </h1>
+                                <p class="text-gray text-sm font-normal">Size :
+                                    <?php echo htmlspecialchars($order['product_size']); ?>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="col-span-2">
                         <div class="flex items-center justify-evenly">
@@ -51,7 +108,12 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
                             </div>
                             <div class="flex flex-col items-start">
                                 <img src="../../assets/img/qris.jpg" alt="payment_method" class="w-auto h-10">
-                                <p class="text-black text-base font-semibold">Rp.750.000</p>
+                                <p class="text-black text-base font-semibold">
+                                    Rp. <?php
+                                    $total = array_sum(array_column($orders, 'price'));
+                                    echo htmlspecialchars(number_format($total, 0, ',', '.'));
+                                    ?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -83,8 +145,12 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
                         mencegah saldo terpotong dua kali
                     </p>
                 </div>
-                <button onclick="paymentSuccess()" class="mt-10 px-4 py-2 bg-green-500 text-white rounded">Simulate
-                    Payment Success</button>
+                <form method="POST">
+                    <button type="submit" name="simulate_payment"
+                        class="mt-10 px-4 py-2 bg-green-500 text-white rounded">
+                        Simulate Payment Success
+                    </button>
+                </form>
             </div>
         </section>
     </main>
@@ -93,7 +159,7 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
         function startCountdown(duration, display) {
             var timer = duration,
                 minutes, seconds;
-            var interval = setInterval(function() {
+            var interval = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
@@ -110,17 +176,7 @@ if (time() - $_SESSION['start_time'] > $session_duration) {
             return interval;
         }
 
-        function paymentSuccess() {
-            document.getElementById('yourpurchase').style.display = 'none';
-            document.getElementById('selesaikan').textContent = 'Pembayaran Berhasil';
-            document.getElementById('countdown').style.display = 'none';
-            document.getElementById('instructions').style.display = 'none';
-            document.getElementById('scanQRText').textContent = 'Terima Kasih';
-            document.getElementById('barcode').style.display = 'none';
-            document.getElementById('reminder').style.display = 'none';
-        }
-
-        window.onload = function() {
+        window.onload = function () {
             var countdownDuration = 15 * 60,
                 display = document.querySelector('#countdown');
             startCountdown(countdownDuration, display);
